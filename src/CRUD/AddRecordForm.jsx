@@ -1,5 +1,5 @@
 // AddRecordForm.jsx
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import uuid from "react-uuid";
 
 function AddRecordForm({ addRecord }) {
