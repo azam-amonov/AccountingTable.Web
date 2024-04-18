@@ -22,7 +22,7 @@ function AddRecordForm({ addRecord }) {
         addRecord({ id, type, category, date, amount, comment });
         setType('');
         setCategory('');
-        setDate(date);
+        setDate(currentDate);
         setAmount('');
         setComment('');
     };
