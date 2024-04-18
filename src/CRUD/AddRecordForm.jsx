@@ -12,10 +12,13 @@ function AddRecordForm({ addRecord }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const id = Date.now(); // Generate unique ID
-        addRecord({ id, name, email });
-        setName('');
-        setEmail('');
+        const id = uuid(); // Generate unique ID
+        addRecord({ id, type, category, date, amount, comment });
+        setType('');
+        setCategory('');
+        setDate('');
+        setAmount('');
+        setComment('');
     };
 
     return (
