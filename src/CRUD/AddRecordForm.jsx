@@ -48,6 +48,7 @@ function AddRecordForm({ addRecord }) {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
             />
+            &nbsp; &nbsp;
             <button type="submit">Add Record</button>
         </form>
     );
