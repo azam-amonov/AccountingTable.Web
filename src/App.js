@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import Table from './Tables/./Table';
 import AddRecordForm from './CRUD/AddRecordForm';
+import CategoryTable from "./Tables/CategoryTable";
+import RecordTable from "./Tables/RecordTable";
 
 function App() {
   const [data, setData] = useState([]);
@@ -19,6 +21,7 @@ function App() {
         <h1>CRUD Table</h1>
           <div className= "cneter-contanier" align={"center"}>
               <AddRecordForm addRecord={addRecord} />
+              <RecordTable data={data} deleteRecord={deleteRecord} />
               <Table data={data} deleteRecord={deleteRecord} />
           </div>
         
