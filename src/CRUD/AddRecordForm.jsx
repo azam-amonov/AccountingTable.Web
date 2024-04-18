@@ -29,12 +29,6 @@ function AddRecordForm({ addRecord }) {
 
     return (
         <form onSubmit={handleSubmit} >
-            <select 
-                value={type} 
-                onChange={(e) => setType(e.target.value)}>
-                <option value= '0'> Income </option>
-                <option value= '0'> Expenses </option>
-            </select> &nbsp;
             <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
