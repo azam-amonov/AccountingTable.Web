@@ -23,6 +23,8 @@ function App() {
               <AddRecordForm addRecord={addRecord} />
               <RecordTable data={data} deleteRecord={deleteRecord} />
               <Table data={data} deleteRecord={deleteRecord} />
+              <CategoryTable data={data} deleteRecord={deleteRecord}/>
+              
           </div>
         
       </div>
