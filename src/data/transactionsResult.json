@@ -1,0 +1,92 @@
+[
+  {
+    "transaction": {
+      "id": "b86d9c54-7686-4ca8-8984-e16714fe6655",
+      "userId": "8121adf5-6db9-46bb-ae3b-60b547526438",
+      "categoryId": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "transactionDate": "2024-04-02T19:00:00+00:00",
+      "comment": "newewnewn",
+      "amount": 89765000
+    },
+    "category": {
+      "id": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "name": "Food",
+      "accounting": 1
+    }
+  },
+  {
+    "transaction": {
+      "id": "75c56079-9619-44a3-88a4-7675b09817d0",
+      "userId": "8121adf5-6db9-46bb-ae3b-60b547526438",
+      "categoryId": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "transactionDate": "2024-03-01T19:00:00+00:00",
+      "comment": "some comment",
+      "amount": 40000000
+    },
+    "category": {
+      "id": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "name": "Food",
+      "accounting": 1
+    }
+  },
+  {
+    "transaction": {
+      "id": "72144c30-d401-4b4a-be4c-13dcf4a8e567",
+      "userId": "47729a8b-e359-493e-a982-e7c818cd1220",
+      "categoryId": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "transactionDate": "2024-04-09T19:00:00+00:00",
+      "comment": "some comment",
+      "amount": 5000000
+    },
+    "category": {
+      "id": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "name": "Food",
+      "accounting": 1
+    }
+  },
+  {
+    "transaction": {
+      "id": "070e7930-b979-43a2-b512-69ad2999c2c1",
+      "userId": "8121adf5-6db9-46bb-ae3b-60b547526438",
+      "categoryId": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "transactionDate": "2024-04-02T19:00:00+00:00",
+      "comment": "newewnewn",
+      "amount": 90000000
+    },
+    "category": {
+      "id": "0ca6c0a4-2a85-4b88-9c42-2fb86334b1ed",
+      "name": "Food",
+      "accounting": 1
+    }
+  },
+  {
+    "transaction": {
+      "id": "7f45cc7a-75e5-43b3-9993-44a1a2f54c28",
+      "userId": "47729a8b-e359-493e-a982-e7c818cd1220",
+      "categoryId": "1a99ed58-54fc-4c2d-b68d-f0f8c96f88c8",
+      "transactionDate": "2024-04-04T19:00:00+00:00",
+      "comment": "some comment",
+      "amount": 8000000
+    },
+    "category": {
+      "id": "1a99ed58-54fc-4c2d-b68d-f0f8c96f88c8",
+      "name": "Salary",
+      "accounting": 0
+    }
+  },
+  {
+    "transaction": {
+      "id": "48083f85-f091-4ed1-bd22-b93d80a75e5a",
+      "userId": "8121adf5-6db9-46bb-ae3b-60b547526438",
+      "categoryId": "2e52a172-8bb5-4a3a-87d2-8e034068c3f2",
+      "transactionDate": "2024-04-02T19:00:00+00:00",
+      "comment": "Yangi data ",
+      "amount": 123400003
+    },
+    "category": {
+      "id": "2e52a172-8bb5-4a3a-87d2-8e034068c3f2",
+      "name": "Umidjon",
+      "accounting": 1
+    }
+  }
+]
