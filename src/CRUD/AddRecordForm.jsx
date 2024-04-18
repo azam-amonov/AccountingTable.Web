@@ -6,7 +6,7 @@ function AddRecordForm({ addRecord }) {
     const currentDate = new Date().toISOString().slice(0,16)
     const [type, setType] = useState('');
     const [category, setCategory] = useState('');
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState(currentDate);
     const [amount, setAmount] = useState('');
     const [comment, setComment] = useState('');
 
