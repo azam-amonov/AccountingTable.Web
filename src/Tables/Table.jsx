@@ -12,7 +12,7 @@ function Table({ data, deleteRecord }) {
                 <th>Category</th>
                 <th>Date</th>
                 <th>Amount</th>
-                <th>Category</th>
+                <th>Comment</th>
                 <th>Action</th>
             </tr>
             </thead>
