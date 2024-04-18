@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 
 function AddRecordForm({ addRecord }) {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [type, setType] = useState('');
+    const [category, setCategory] = useState('');
+    const [date, setDate] = useState('');
+    const [amount, setAmount] = useState('');
+    const [comment, setComment] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
