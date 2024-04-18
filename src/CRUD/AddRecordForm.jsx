@@ -15,6 +15,15 @@ function AddRecordForm({ addRecord }) {
     useEffect(() => {
         setCategories(categoriesData); // Set categories data from imported JSON
     }, []);
+
+    const handleCategoryChange = (e) => {
+        const selectedCategoryName = e.target.value;
+        const selectedCategory = categories.find(cat => cat.name === selectedCategoryName);
+        if (selectedCategory) {
+            setType(selectedCategory.accounting === 1 ? 'Expenses' : 'Income');
+            setCategory(selectedCategoryName);
+        }
+    };
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +40,7 @@ function AddRecordForm({ addRecord }) {
         <form onSubmit={handleSubmit} >
             <select
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={handleCategoryChange}
             >
                 <option value=''> Select Category</option>
                 {categories.map(cat => (
