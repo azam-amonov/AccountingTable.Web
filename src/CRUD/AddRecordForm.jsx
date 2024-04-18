@@ -25,10 +25,28 @@ function AddRecordForm({ addRecord }) {
                 onChange={(e) => setType(e.target.value)}
             /> &nbsp;
             <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="Category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+            /> &nbsp;
+            <input
+                type="date"
+                placeholder="Date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+            /> &nbsp;
+            <input
+                type="number"
+                placeholder="Amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+            /> &nbsp;
+            <input
+                type="text"
+                placeholder="Comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
             />
             <button type="submit">Add Record</button>
         </form>
