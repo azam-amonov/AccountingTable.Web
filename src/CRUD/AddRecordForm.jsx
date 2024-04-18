@@ -22,13 +22,13 @@ function AddRecordForm({ addRecord }) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Type"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-            /> &nbsp;
+        <form onSubmit={handleSubmit} >
+            <select 
+                value={type} 
+                onChange={(e) => setType(e.target.value)}>
+                <option value= '0'> Income </option>
+                <option value= '0'> Expenses </option>
+            </select> &nbsp;
             <input
                 type="text"
                 placeholder="Category"
