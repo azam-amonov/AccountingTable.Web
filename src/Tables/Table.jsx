@@ -20,11 +20,11 @@ function Table({ data, deleteRecord }) {
             {data.map((record) => (
                 <tr key={record.id}>
                     <td>{record.id}</td>
-                    <td>{record.name}</td>
-                    <td>{record.email}</td>
-                    <td>{record.name}</td>
-                    <td>{record.name}</td>
-                    <td>{record.name}</td>
+                    <td>{record.type}</td>
+                    <td>{record.category}</td>
+                    <td>{record.date}</td>
+                    <td>{record.amount}</td>
+                    <td>{record.comment}</td>
                     <td>
                         <button onClick={() => deleteRecord(record.id)}>Delete</button>
                     </td>
