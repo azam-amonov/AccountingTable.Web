@@ -1,7 +1,9 @@
 // AddRecordForm.jsx
 import React, { useState } from 'react';
+import uuid from "react-uuid";
 
 function AddRecordForm({ addRecord }) {
+    const currentDate = new Date().toISOString().slice(0,16)
     const [type, setType] = useState('');
     const [category, setCategory] = useState('');
     const [date, setDate] = useState('');
