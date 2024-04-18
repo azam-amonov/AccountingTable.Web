@@ -20,10 +20,10 @@ function AddRecordForm({ addRecord }) {
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
+                placeholder="Type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+            /> &nbsp;
             <input
                 type="email"
                 placeholder="Email"
