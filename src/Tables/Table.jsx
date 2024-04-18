@@ -1,8 +1,15 @@
 // Table.jsx
-import React from 'react';
-import './Table.css';
+import React, { useState, useEffect } from 'react';
+import './Table.css'
+import transactionsResultData from '../data/transactionsResult.json';
 
-function Table({ data, deleteRecord }) {
+function Table({ deleteRecord }) {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        setData(transactionsResultData);
+    }, []);
+
     return (
         <table>
             <thead>
@@ -17,16 +24,16 @@ function Table({ data, deleteRecord }) {
             </tr>
             </thead>
             <tbody>
-            {data.map((record) => (
-                <tr key={record.id}>
-                    <td>{record.id}</td>
-                    <td>{record.type}</td>
-                    <td>{record.category}</td>
-                    <td>{record.date}</td>
-                    <td>{record.amount}</td>
-                    <td>{record.comment}</td>
+            {data.map(({ transaction, category }) => (
+                <tr key={transaction.id}>
+                    <td>{transaction.id}</td>
+                    <td>{category.accounting === 0 ? 'Income': 'Expenses'}</td>
+                    <td>{category.name}</td>
+                    <td>{new Date(transaction.transactionDate).toLocaleDateString()}</td>
+                    <td>{transaction.amount}</td>
+                    <td>{transaction.comment}</td>
                     <td>
-                        <button onClick={() => deleteRecord(record.id)}>Delete</button>
+                        <button onClick={() => deleteRecord(transaction.id)}>Delete</button>
                     </td>
                 </tr>
             ))}
