@@ -16,7 +16,7 @@ function AddRecordForm({ addRecord }) {
         addRecord({ id, type, category, date, amount, comment });
         setType('');
         setCategory('');
-        setDate('');
+        setDate(date);
         setAmount('');
         setComment('');
     };
@@ -36,7 +36,7 @@ function AddRecordForm({ addRecord }) {
                 onChange={(e) => setCategory(e.target.value)}
             /> &nbsp;
             <input
-                type="date"
+                type="datetime-local"
                 placeholder="Date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
