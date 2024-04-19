@@ -1,7 +1,6 @@
 // AddRecordForm.jsx
 import React, {useEffect, useState } from 'react';
 import uuid from "react-uuid";
-import categoriesData from '../data/categories.json';
 import './Form.css'
 import axios from "axios";
 
@@ -46,7 +45,7 @@ function AddRecordForm({ addRecord }) {
             <select
                 value={category}
                 onChange={handleCategoryChange}
-                style={{fontSize: '23px', padding: '10px', width: '10%'}}
+                style={{fontSize: '23px', padding: '10px', width: '20%'}}
             >
                 <option value=''> Select Category</option>
                 {categories.map(cat => (
