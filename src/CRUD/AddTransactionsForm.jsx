@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 import './Form.css'
 import axios from "axios";
 
-function AddRecordForm({ addRecord }) {
+function AddTransactionsForm({ addRecord }) {
     const currentDate = new Date().toISOString().slice(0,16)
     const [type, setType] = useState('');
     const [categories, setCategories] = useState([])
@@ -79,4 +79,4 @@ function AddRecordForm({ addRecord }) {
     );
 }
 
-export default AddRecordForm;
+export default AddTransactionsForm;

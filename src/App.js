@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import Table from './Tables/Table';
-import AddRecordForm from './CRUD/AddRecordForm';
+import AddTransactionsForm from './CRUD/AddTransactionsForm';
 import AddCategoryForm from './CRUD/AddCategoryForm';
 import CategoryTable from './Tables/CategoryTable';
 import RecordTable from './Tables/RecordTable';
@@ -29,7 +29,7 @@ function App() {
       <div className={"app-container"} align={"center"}>
         <h1>CRUD Table</h1>
           <div className= "cneter-contanier" align={"center"}>
-              <AddRecordForm addRecord={addRecord} />
+              <AddTransactionsForm addRecord={addRecord} />
               <AddCategoryForm addCategory = {addCategory}/>
               <FilterForm filters={filter}/>
               {/*<RecordTable data={data} deleteRecord={deleteRecord} />*/}
