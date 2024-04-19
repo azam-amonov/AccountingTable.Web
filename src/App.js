@@ -22,13 +22,16 @@ function App() {
     setData(data.filter((record) => record.id));
   }
   
+  const filter = () => {
+    
+  }
   return (
       <div className={"app-container"} align={"center"}>
         <h1>CRUD Table</h1>
           <div className= "cneter-contanier" align={"center"}>
               <AddRecordForm addRecord={addRecord} />
               <AddCategoryForm addCategory = {addCategory}/>
-              <FilterForm/>
+              <FilterForm filters={filter}/>
               {/*<RecordTable data={data} deleteRecord={deleteRecord} />*/}
               <Table data={data} deleteRecord={deleteRecord} />
               {/*<CategoryTable data={data} deleteRecord={deleteRecord}/>*/}
