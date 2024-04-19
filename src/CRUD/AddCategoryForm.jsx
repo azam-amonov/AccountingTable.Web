@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import uuid from "react-uuid";
+import './Form.css';
 
-function AddCategoryForm({addCategory}){
-    const [name, setName] = useState('')
-    const [accounting, setAccounting] = useState('')
-    
+function AddCategoryForm({ addCategory }) {
+    const [name, setName] = useState('');
+    const [accounting, setAccounting] = useState('');
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const id = uuid();
@@ -12,28 +13,32 @@ function AddCategoryForm({addCategory}){
         setName('');
         setAccounting('');
     };
-    
+
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="categoryName">Name: </label>
+        <form onSubmit={handleSubmit} className="add-category">
+            <label htmlFor="categoryName"> Category Name: </label>
             <input
                 type="text"
-                placeholder="Name"
+                placeholder="Enter Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             /> &nbsp;
-            <select
-                value={accounting}
-                onChange={(e) => setAccounting(e.target.value)}>
+            <select className="select-accounting"
+                    value={accounting}
+                    style={{fontSize: '23px', padding: '10px', width: '10%'}}
+                    onChange={(e) => setAccounting(e.target.value)}
+            >
                 <option value="">Select Type</option>
                 <option value='0'> Income</option>
                 <option value='1'> Expenses</option>
             </select> &nbsp;
-            <button> Create Category </button> &nbsp;
-            <button> Delete Category </button> &nbsp;
-            <button> Edit Category </button>
+            <button type="submit" className="create-button">Create Category</button> &nbsp;
+            <button type="button" className="edit-button">Edit Category</button> &nbsp;
+            <button type="button" className="delete-button">Delete Category</button> 
         </form>
     );
 }
 
 export default AddCategoryForm;
+
+
