@@ -3,6 +3,7 @@ import React, {useEffect, useState } from 'react';
 import uuid from "react-uuid";
 import categoriesData from '../data/categories.json';
 import './Form.css'
+import axios from "axios";
 
 function AddRecordForm({ addRecord }) {
     const currentDate = new Date().toISOString().slice(0,16)
@@ -14,7 +15,10 @@ function AddRecordForm({ addRecord }) {
     const [comment, setComment] = useState('');
 
     useEffect(() => {
-        setCategories(categoriesData); // Set categories data from imported JSON
+        axios.get('https://localhost:5177/api/Category')
+            .then((response) => {
+                setCategories(response.data)
+            })
     }, []);
 
     const handleCategoryChange = (e) => {
