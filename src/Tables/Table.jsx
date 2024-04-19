@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Table.css'
-import transactionsResultData from '../data/transactionsResult.json';
+import axios from "axios";
 
 function Table({ deleteRecord }) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        setData(transactionsResultData);
+        axios.get('https://localhost:5177/api/TransactionResult')
+            .then((response) =>{
+                setData(response.data);
+            })
     }, []);
 
     return (
