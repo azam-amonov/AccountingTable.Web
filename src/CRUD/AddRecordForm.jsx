@@ -1,4 +1,3 @@
-// AddRecordForm.jsx
 import React, {useEffect, useState } from 'react';
 import uuid from "react-uuid";
 import './Form.css'
