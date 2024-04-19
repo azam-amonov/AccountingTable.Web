@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import categoriesData from '../data/categories.json';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select';
 import './Form.css';
+import axios from "axios";
 
 function FilterForm({ filters }) {
     const [accounting, setAccounting] = useState('');
@@ -13,7 +13,10 @@ function FilterForm({ filters }) {
     const [endDate, setEndDate] = useState();
 
     useEffect(() => {
-        setCategories(categoriesData);
+        axios.get('https://localhost:5177/api/Category')
+            .then((response) => {
+                setCategories(response.data);
+            })
     }, []);
 
     const onSelectChange = (selectedOptions) => {
