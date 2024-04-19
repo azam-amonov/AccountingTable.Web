@@ -3,7 +3,7 @@ import './Table.css'
 import axios from "axios";
 import {numberToCurrency} from "../service/parser";
 
-function Table({ deleteRecord }) {
+function Table({}) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -12,6 +12,20 @@ function Table({ deleteRecord }) {
                 setData(response.data);
             })
     }, []);
+    
+    const onDelete = (id) => {
+        axios.delete(`https://localhost:5177/api/Transaction/${id}`)
+            .then(() => {
+                getData()
+            })
+    }
+    
+    const getData = () => {
+        axios.get('https://localhost:5177/api/TransactionResult')
+            .then((getData) => {
+                setData(getData.data)
+            })
+    }
 
     return (
         <table>
@@ -36,7 +50,7 @@ function Table({ deleteRecord }) {
                     <td>{numberToCurrency(transaction.amount)}</td>
                     <td>{transaction.comment}</td>
                     <td>
-                        <button onClick={() => deleteRecord(transaction.id)}>Delete</button>
+                        <button onClick={() => onDelete(transaction.id)}>Delete</button>
                     </td>
                 </tr>
             ))}
