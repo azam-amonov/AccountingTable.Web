@@ -82,7 +82,7 @@ function FilterForm({ filters }) {
                 placeholderText="End Date"
             />
             &nbsp; &nbsp;
-            <button type='button' className={'filter-button'}> Filer </button>
+            <button type='button' className={'filter-button'}> Filter </button>
         </form>
     );
 }
