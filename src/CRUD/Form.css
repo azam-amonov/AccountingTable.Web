@@ -1,0 +1,45 @@
+.add-category-form {
+    margin-bottom: 20px;
+    width: auto
+}
+
+.select-accounting {
+    margin-bottom: 50px;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.create-button {
+    background-color: #4CAF50; 
+}
+
+.edit-button {
+    background-color: #f48c36;
+}
+
+.delete-button {
+    background-color: #ec4136; 
+}
+
+.create-button:active {
+    background-color: #acefaf;
+}
+
+.edit-button:active {
+    background-color: #e0bc9f; 
+}
+.delete-button:active {
+    background-color: #eea0a0;
+}
+
