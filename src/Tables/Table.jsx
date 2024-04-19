@@ -1,4 +1,3 @@
-// Table.jsx
 import React, { useState, useEffect } from 'react';
 import './Table.css'
 import transactionsResultData from '../data/transactionsResult.json';
