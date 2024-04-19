@@ -5,6 +5,7 @@ import AddRecordForm from './CRUD/AddRecordForm';
 import AddCategoryForm from './CRUD/AddCategoryForm';
 import CategoryTable from './Tables/CategoryTable';
 import RecordTable from './Tables/RecordTable';
+import FilterForm from "./CRUD/FilterForm";
 
 function App() {
   const [data, setData] = useState([]);
