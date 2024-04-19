@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Table.css'
 import axios from "axios";
+import {numberToCurrency} from "../service/parser";
 
 function Table({ deleteRecord }) {
     const [data, setData] = useState([]);
@@ -32,7 +33,7 @@ function Table({ deleteRecord }) {
                     <td>{category.accounting === 0 ? 'Income': 'Expenses'}</td>
                     <td>{category.name}</td>
                     <td>{new Date(transaction.transactionDate).toLocaleDateString()}</td>
-                    <td>{transaction.amount}</td>
+                    <td>{numberToCurrency(transaction.amount)}</td>
                     <td>{transaction.comment}</td>
                     <td>
                         <button onClick={() => deleteRecord(transaction.id)}>Delete</button>
