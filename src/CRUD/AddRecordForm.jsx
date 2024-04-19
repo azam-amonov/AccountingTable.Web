@@ -2,6 +2,7 @@
 import React, {useEffect, useState } from 'react';
 import uuid from "react-uuid";
 import categoriesData from '../data/categories.json';
+import './Form.css'
 
 function AddRecordForm({ addRecord }) {
     const currentDate = new Date().toISOString().slice(0,16)
@@ -41,6 +42,7 @@ function AddRecordForm({ addRecord }) {
             <select
                 value={category}
                 onChange={handleCategoryChange}
+                style={{fontSize: '23px', padding: '10px', width: '10%'}}
             >
                 <option value=''> Select Category</option>
                 {categories.map(cat => (
@@ -66,7 +68,11 @@ function AddRecordForm({ addRecord }) {
                 onChange={(e) => setComment(e.target.value)}
             />
             &nbsp; &nbsp;
-            <button type="submit">Add Transaction</button>
+            <button 
+                type="submit" 
+                className={'create-button'}>
+                Add Transaction
+            </button>
         </form>
     );
 }
