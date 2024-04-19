@@ -32,6 +32,9 @@
     background-color: #ec4136; 
 }
 
+.filter-button {
+    background-color: #61dafb;
+}
 .create-button:active {
     background-color: #acefaf;
 }
@@ -41,5 +44,9 @@
 }
 .delete-button:active {
     background-color: #eea0a0;
+}
+
+.filter-button:active {
+    background-color: aqua;
 }
 
