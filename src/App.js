@@ -28,9 +28,10 @@ function App() {
           <div className= "cneter-contanier" align={"center"}>
               <AddRecordForm addRecord={addRecord} />
               <AddCategoryForm addCategory = {addCategory}/>
-              <RecordTable data={data} deleteRecord={deleteRecord} />
+              <FilterForm/>
+              {/*<RecordTable data={data} deleteRecord={deleteRecord} />*/}
               <Table data={data} deleteRecord={deleteRecord} />
-              <CategoryTable data={data} deleteRecord={deleteRecord}/>
+              {/*<CategoryTable data={data} deleteRecord={deleteRecord}/>*/}
               
           </div>
         
