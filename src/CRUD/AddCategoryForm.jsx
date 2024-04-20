@@ -3,9 +3,12 @@ import uuid from "react-uuid";
 import './Form.css';
 import axios from "axios";
 
-function AddCategoryForm({ addCategory }) {
-    const [name, setName] = useState('');
-    const [accounting, setAccounting] = useState('');
+function AddCategoryForm() {
+    const [category, setCategory] = useState({
+        id: uuid(),
+        name: '',
+        accounting: 0
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
