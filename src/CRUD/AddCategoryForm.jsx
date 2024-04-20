@@ -16,11 +16,14 @@ function AddCategoryForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const id = uuid();
-        addCategory(id, name, accounting);
-        setName('');
-        setAccounting('');
-    };
+        try {
+            console.log(category)
+            const response = await axios.post('https://localhost:5177/api/Category', category);
+            console.log("Category created", response.data);
+        } catch (error) {
+            console.error("Error creating", error);
+        }
+    }
 
     return (
         <form onSubmit={handleSubmit} className="add-category">
@@ -28,13 +31,17 @@ function AddCategoryForm() {
             <input
                 type="text"
                 placeholder="Enter Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={category.name}
+                onChange={(e) => handleChange(e)}
+                name="name"
             /> &nbsp;
-            <select className="select-accounting"
-                    value={accounting}
-                    style={{fontSize: '23px', padding: '10px', width: '10%'}}
-                    onChange={(e) => setAccounting(e.target.value)}
+            <select
+                typeof= 'number'
+                className="select-accounting"
+                value={category.accounting}
+                style={{fontSize: '23px', padding: '10px', width: '10%'}}
+                onChange={(e) => handleChange(e)}
+                name="accounting"
             >
                 <option value="">Select Type</option>
                 <option value='0'> Income</option>
