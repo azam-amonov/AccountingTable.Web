@@ -4,8 +4,7 @@ import './Form.css'
 import axios from "axios";
 
 function AddTransactionsForm({ addRecord }) {
-    const currentDate = new Date().toISOString().slice(0,16)
-    const [type, setType] = useState('');
+    const currentDate = new Date().toISOString().slice(0, 16)
     const [categories, setCategories] = useState([])
     const [category, setCategory] = useState('');
     const [date, setDate] = useState(currentDate);
@@ -13,32 +12,53 @@ function AddTransactionsForm({ addRecord }) {
     const [comment, setComment] = useState('');
 
     useEffect(() => {
+        fetchCategories()
+    }, []);
+
+    const fetchCategories = () => {
         axios.get('https://localhost:5177/api/Category')
             .then((response) => {
                 setCategories(response.data)
             })
-    }, []);
+            .catch((error) => {
+                console.error("Error fetching Category: ", error);
+            });
+    };
 
     const handleCategoryChange = (e) => {
-        const selectedCategoryName = e.target.value;
-        const selectedCategory = categories.find(cat => cat.name === selectedCategoryName);
-        if (selectedCategory) {
-            setType(selectedCategory.accounting === 1 ? 'Expenses' : 'Income');
-            setCategory(selectedCategoryName);
+        setCategory(e.target.value);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const selectedCategory = categories.find(cat => cat.name === category);
+            if (!selectedCategory) {
+                console.error("Selected Category not found");
+            }
+
+
+            const newTransaction = {
+                id: uuid(),
+                userId: "47729a8b-e359-493e-a982-e7c818cd1220",
+                categoryId: selectedCategory.id,
+                transactionDate: new Date(date).toISOString(),
+                comment: comment,
+                amount: parseInt(amount)
+            };
+            
+            const response =
+                await axios.post('https://localhost:5177/api/Transaction', newTransaction);
+            console.log("Category created", response.data);
+            setCategory('');
+            setDate(currentDate);
+            setAmount('');
+            setComment('');
+        }catch (e) {
+            console.error("Error catching",e);
         }
     };
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const id = uuid(); // Generate unique ID
-        addRecord({ id, type, category, date, amount, comment });
-        setType('');
-        setCategory('');
-        setDate(currentDate);
-        setAmount('');
-        setComment('');
-    };
-
     return (
         <form onSubmit={handleSubmit} >
             <select
@@ -60,7 +80,7 @@ function AddTransactionsForm({ addRecord }) {
             <input
                 type="number"
                 placeholder="Amount"
-                value={amount}
+                value={parseInt(amount)}
                 onChange={(e) => setAmount(e.target.value)}
             /> &nbsp;
             <input
