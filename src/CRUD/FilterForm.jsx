@@ -32,28 +32,18 @@ function FilterForm({ filters }) {
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
-            width: '300px', // Adjust the width of the control
-            border: state.isFocused ? '1px solid #000' : '1px solid #ccc', // Change border color when focused
-            boxShadow: state.isFocused ? '0 0 3px rgba(0, 0, 0, 0.5)' : 'none', // Add box shadow when focused
+            width: '300px',
+            border: state.isFocused ? '1px solid #000' : '1px solid #ccc', 
+            boxShadow: state.isFocused ? '0 0 3px rgba(0, 0, 0, 0.5)' : 'none', 
         }),
         multiValue: (provided) => ({
             ...provided,
-            backgroundColor: '#f0f0f0', // Change background color of multi-value container
+            backgroundColor: '#78b2cb', 
         }),
     };
 
     return (
         <form onSubmit={handleSubmit} className="add-category">
-            <select
-                className="select-accounting"
-                value={accounting}
-                onChange={(e) => setAccounting(e.target.value)}
-                style={{fontSize: '23px', padding: '10px', width: '10%'}}
-            >
-                <option value="">Select Type</option>
-                <option value='0'>Income</option>
-                <option value='1'>Expenses</option>
-            </select>
             &nbsp; &nbsp;
             <Select
                 defaultValue={[]}
