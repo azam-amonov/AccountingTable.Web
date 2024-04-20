@@ -30,9 +30,14 @@ function App() {
         <h1>Micro Accounting</h1>
           <div className= "cneter-contanier" align={"center"}>
               <AddTransactionsForm addRecord={addRecord} />
+              
               <AddCategoryForm addCategory = {addCategory}/>
+              
               <EditDeleteCategoryForm/>
+              
               <FilterForm filters={filter}/>
+              
+              <FilterByType/>
               {/*<RecordTable data={data} deleteRecord={deleteRecord} />*/}
               <Table data={data} deleteRecord={deleteRecord} />
               {/*<CategoryTable data={data} deleteRecord={deleteRecord}/>*/}
