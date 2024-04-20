@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import Table from '../Tables/Table';
 
 function FilterByType(){
     const [accounting, setAccounting] = useState('');
@@ -26,6 +27,7 @@ function FilterByType(){
         };
     
     return (
+        <div>
         <form action="">
             <select
                 className="select-accounting"
@@ -40,6 +42,8 @@ function FilterByType(){
             &nbsp; &nbsp;
             <button type='button' onClick={onGetType}> Sort Type</button>
         </form>
+            <Table transactions={typedTransaction}></Table>
+        </div>
 
     )
 }
