@@ -1,31 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import axios from 'axios';
 import './Table.css'
-import axios from "axios";
-import {numberToCurrency} from "../service/parser";
+import { numberToCurrency } from "../service/parser";
 
-function Table({}) {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        axios.get('https://localhost:5177/api/TransactionResult')
-            .then((response) =>{
-                setData(response.data);
-            })
-    }, []);
-    
+function Table({ transactions, setTransactions }) {
     const onDelete = (id) => {
         axios.delete(`https://localhost:5177/api/Transaction/${id}`)
             .then(() => {
-                getData()
+                fetchTransactions();
             })
-    }
-    
-    const getData = () => {
+            .catch((error) => {
+                console.error('Error deleting transaction:', error);
+            });
+    };
+    const fetchTransactions = () => {
         axios.get('https://localhost:5177/api/TransactionResult')
-            .then((getData) => {
-                setData(getData.data)
+            .then((response) => {
+                setTransactions(response.data);
             })
-    }
+            .catch((error) => {
+                console.error('Error fetching transactions:', error);
+            });
+    };
 
     return (
         <table>
@@ -41,10 +37,10 @@ function Table({}) {
             </tr>
             </thead>
             <tbody>
-            {data.map(({ transaction, category }) => (
+            {transactions.map(({ transaction, category }) => (
                 <tr key={transaction.id}>
                     <td>{transaction.id}</td>
-                    <td>{category.accounting === 0 ? 'Income': 'Expenses'}</td>
+                    <td>{category.accounting === 0 ? 'Income' : 'Expenses'}</td>
                     <td>{category.name}</td>
                     <td>{new Date(transaction.transactionDate).toLocaleDateString()}</td>
                     <td>{numberToCurrency(transaction.amount)}</td>
