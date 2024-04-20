@@ -17,7 +17,7 @@ function App() {
     setData(data.filter((record) => record.id !== id));
   };
   
-  const addCategory = (id) => {
+  const addCategory = () => {
     setData(data.filter((record) => record.id));
   }
   
