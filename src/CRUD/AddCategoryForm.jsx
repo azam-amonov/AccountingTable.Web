@@ -17,7 +17,7 @@ function AddCategoryForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log(category)
+            category.id = uuid();
             const response = await axios.post('https://localhost:5177/api/Category', category);
             console.log("Category created", response.data);
         } catch (error) {
