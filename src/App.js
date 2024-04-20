@@ -26,7 +26,7 @@ function App() {
   }
   return (
       <div className={"app-container"} align={"center"}>
-        <h1>CRUD Table</h1>
+        <h1>Micro Accounting</h1>
           <div className= "cneter-contanier" align={"center"}>
               <AddTransactionsForm addRecord={addRecord} />
               <AddCategoryForm addCategory = {addCategory}/>
