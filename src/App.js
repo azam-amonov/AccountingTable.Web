@@ -6,6 +6,7 @@ import FilterForm from "./CRUD/FilterForm";
 import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
 import FilterByType from "./CRUD/FilterByType";
 import axios from 'axios';
+import FilterByDate from "./CRUD/FilterByDate";
 
 function App() {
     const [transactions, setTransactions] = useState([]);
@@ -32,6 +33,8 @@ function App() {
             <AddCategoryForm/>
             <EditDeleteCategoryForm/>
             <FilterForm/>
+            <FilterByDate 
+            transactons = {transactions}></FilterByDate>
             <FilterByType
                 transactions={transactions}
                 setFilteredTransactions={setFilteredTransactions}
