@@ -10,7 +10,11 @@ function AddCategoryForm() {
         accounting: 0
     });
 
-    const handleSubmit = (e) => {
+    const handleChange = (e) => {
+        setCategory({...category, [e.target.name]: e.target.value});
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const id = uuid();
         addCategory(id, name, accounting);
