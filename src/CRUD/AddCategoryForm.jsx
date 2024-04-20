@@ -7,19 +7,26 @@ function AddCategoryForm() {
     const [category, setCategory] = useState({
         id: uuid(),
         name: '',
-        accounting: 0
+        accounting: ''
     });
 
-    const handleChange = (e) => {
-        setCategory({...category, [e.target.name]: e.target.value});
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setCategory((prevState) => ({
+            ...prevState,
+            [name]: name === 'accounting' ? parseInt(value) : value,
+        }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            category.id = uuid();
             const response = await axios.post('https://localhost:5177/api/Category', category);
             console.log("Category created", response.data);
+            setCategory({ 
+                id: uuid(), 
+                name: '', 
+                accounting: '', });
         } catch (error) {
             console.error("Error creating", error);
         }
