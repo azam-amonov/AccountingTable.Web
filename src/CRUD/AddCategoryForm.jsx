@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import uuid from "react-uuid";
 import './Form.css';
+import axios from "axios";
 
 function AddCategoryForm({ addCategory }) {
     const [name, setName] = useState('');
