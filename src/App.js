@@ -6,6 +6,7 @@ import AddCategoryForm from './CRUD/AddCategoryForm';
 import CategoryTable from './Tables/CategoryTable';
 import RecordTable from './Tables/RecordTable';
 import FilterForm from "./CRUD/FilterForm";
+import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
 
 function App() {
   const [data, setData] = useState([]);
@@ -31,6 +32,7 @@ function App() {
           <div className= "cneter-contanier" align={"center"}>
               <AddTransactionsForm addRecord={addRecord} />
               <AddCategoryForm addCategory = {addCategory}/>
+              <EditDeleteCategoryForm/>
               <FilterForm filters={filter}/>
               {/*<RecordTable data={data} deleteRecord={deleteRecord} />*/}
               <Table data={data} deleteRecord={deleteRecord} />
