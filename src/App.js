@@ -8,9 +8,7 @@ import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
 import FilterByType from "./CRUD/FilterByType";
 
 function App() {
-  const filter = () => {
-    
-  }
+
   return (
       <div className={"app-container"} align={"center"}>
         <h1>Micro Accounting</h1>
@@ -20,7 +18,7 @@ function App() {
               
               <EditDeleteCategoryForm/>
               
-              <FilterForm filters={filter}/>
+              <FilterForm/>
               
               <FilterByType/>
               <Table/>
