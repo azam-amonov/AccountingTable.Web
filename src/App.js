@@ -5,6 +5,7 @@ import AddTransactionsForm from './CRUD/AddTransactionsForm';
 import AddCategoryForm from './CRUD/AddCategoryForm';
 import FilterForm from "./CRUD/FilterForm";
 import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
+import FilterByType from "./CRUD/FilterByType";
 
 function App() {
   const [data, setData] = useState([]);
