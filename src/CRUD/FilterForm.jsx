@@ -5,8 +5,7 @@ import Select from 'react-select';
 import './Form.css';
 import axios from "axios";
 
-function FilterForm({ filters }) {
-    const [accounting, setAccounting] = useState('');
+function FilterForm() {
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [startDate, setStartDate] = useState(new Date());
