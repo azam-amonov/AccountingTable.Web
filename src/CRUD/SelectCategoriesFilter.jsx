@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select';
 import './Form.css';
 import axios from "axios";
+import Table from "../Tables/Table";
 
-function FilterForm() {
+function SelectCategoriesFilter() {
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState();
+    const [filteredTransactions, setFilteredTransactions] = useState([]);
 
     useEffect(() => {
         axios.get('https://localhost:5177/api/Category')
@@ -24,14 +23,21 @@ function FilterForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Send selected categories to your API endpoint
         console.log("Selected Categories:", selectedCategories);
+        const categoryNames = selectedCategories.map(category => `name=${category}`).join('&');
+        axios.get(`https://localhost:5177/api/TransactionResult/names?${categoryNames}`)
+            .then(response => {
+                setFilteredTransactions(response.data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            })
     };
     
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
-            width: '300px',
+            width: '1000px',
             border: state.isFocused ? '1px solid #000' : '1px solid #ccc', 
             boxShadow: state.isFocused ? '0 0 3px rgba(0, 0, 0, 0.5)' : 'none', 
         }),
@@ -42,6 +48,7 @@ function FilterForm() {
     };
 
     return (
+        <div>
         <form onSubmit={handleSubmit} className="add-category">
             &nbsp; &nbsp;
             <Select
@@ -55,28 +62,12 @@ function FilterForm() {
                 onChange={onSelectChange}
                 styles={customStyles} 
             />
-            <DatePicker
-                selected={startDate}
-                onChange={date => setStartDate(date)}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-                placeholderText="Start Date"
-            />
             &nbsp; &nbsp;
-            <DatePicker
-                selected={endDate}
-                onChange={date => setEndDate(date)}
-                selectsEnd
-                startDate={startDate}
-                endDate={endDate}
-                minDate={startDate}
-                placeholderText="End Date"
-            />
-            &nbsp; &nbsp;
-            <button type='button' className={'filter-button'}> Filter </button>
+            <button type='submit' className={'filter-button'} > Filter </button>
         </form>
+            <Table transactions={filteredTransactions}></Table>
+        </div>
     );
 }
 
-export default FilterForm;
+export default SelectCategoriesFilter;
