@@ -55,5 +55,3 @@ function AddCategoryForm() {
 }
 
 export default AddCategoryForm;
-
-
