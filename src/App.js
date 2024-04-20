@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Table from './Tables/Table';
 import AddTransactionsForm from './CRUD/AddTransactionsForm';
 import AddCategoryForm from './CRUD/AddCategoryForm';
-import CategoryTable from './Tables/CategoryTable';
-import RecordTable from './Tables/RecordTable';
 import FilterForm from "./CRUD/FilterForm";
 import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
 
