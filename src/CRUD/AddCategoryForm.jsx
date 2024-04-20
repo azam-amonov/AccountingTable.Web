@@ -55,8 +55,6 @@ function AddCategoryForm() {
                 <option value={parseInt('1')}>Expenses</option>
             </select> &nbsp;
             <button type="submit" className="create-button">Create Category</button> &nbsp;
-            <button type="button" className="edit-button">Edit Category</button> &nbsp;
-            <button type="button" className="delete-button">Delete Category</button>
         </form>
     );
 }
