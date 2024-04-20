@@ -17,7 +17,6 @@ function FilerByDate(){
         axios.get(`https://localhost:5177/api/TransactionResult/between/date?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
             .then(response => {
                 setFilteredTransaction(response.data);
-                console.log(filteredTransaction);
             })
             .catch((error) => {
                 console.error('Error getting transaction', error);
