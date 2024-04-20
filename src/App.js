@@ -14,11 +14,8 @@ function App() {
           <div className= "cneter-contanier" align={"center"}>
               <AddTransactionsForm/>
               <AddCategoryForm />
-              
               <EditDeleteCategoryForm/>
-              
               <FilterForm/>
-              
               <FilterByType/>
               <Table/>
           </div>
