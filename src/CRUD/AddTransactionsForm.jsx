@@ -4,7 +4,7 @@ import './Form.css'
 import axios from "axios";
 import BASE_URL from "../configuration/apiConfig";
 
-function AddTransactionsForm({ addRecord }) {
+function AddTransactionsForm() {
     const currentDate = new Date().toISOString().slice(0, 16)
     const [categories, setCategories] = useState([])
     const [category, setCategory] = useState('');
