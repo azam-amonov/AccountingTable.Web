@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import uuid from "react-uuid";
 import './Form.css';
 import axios from "axios";
+import BASE_URL from "../configuration/apiConfig";
 
 function AddCategoryForm() {
     const [category, setCategory] = useState({
@@ -21,7 +22,7 @@ function AddCategoryForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://localhost:5177/api/Category', category);
+            const response = await axios.post(`${BASE_URL}/Category`, category);
             console.log("Category created", response.data);
             setCategory({ 
                 id: uuid(), 
