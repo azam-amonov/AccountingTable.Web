@@ -4,6 +4,7 @@ import Select from 'react-select';
 import './Form.css';
 import axios from "axios";
 import Table from "../Tables/Table";
+import BASE_URL from "../configuration/apiConfig";
 
 function SelectCategoriesFilter() {
     const [categories, setCategories] = useState([]);
@@ -11,7 +12,7 @@ function SelectCategoriesFilter() {
     const [filteredTransactions, setFilteredTransactions] = useState([]);
 
     useEffect(() => {
-        axios.get('https://localhost:5177/api/Category')
+        axios.get(`${BASE_URL}/Category`)
             .then((response) => {
                 setCategories(response.data);
             })
@@ -25,7 +26,7 @@ function SelectCategoriesFilter() {
         e.preventDefault();
         console.log("Selected Categories:", selectedCategories);
         const categoryNames = selectedCategories.map(category => `name=${category}`).join('&');
-        axios.get(`https://localhost:5177/api/TransactionResult/names?${categoryNames}`)
+        axios.get(`${BASE_URL}/TransactionResult/names?${categoryNames}`)
             .then(response => {
                 setFilteredTransactions(response.data);
             })
