@@ -4,6 +4,7 @@ import Table from '../Tables/Table';
 import "react-datepicker/dist/react-datepicker.css";
 import './Form.css';
 import DatePicker from 'react-datepicker';
+import BASE_URL from "../configuration/apiConfig";
 
 function FilerByDate(){
     const [startDate, setStartDate] = useState(new Date());
@@ -14,7 +15,7 @@ function FilerByDate(){
         const formattedStartDate = startDate.toISOString().split('T')[0];
         const formattedEndDate = endDate.toISOString().split('T')[0];
         console.log('formatted:   ',formattedStartDate);
-        axios.get(`https://localhost:5177/api/TransactionResult/between/date?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
+        axios.get(`${BASE_URL}/TransactionResult/between/date?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
             .then(response => {
                 setFilteredTransaction(response.data);
             })
