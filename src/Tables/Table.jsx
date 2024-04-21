@@ -2,10 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import './Table.css'
 import { numberToCurrency } from "../service/parser";
+import BASE_URL from "../configuration/apiConfig";
 
 function Table({ transactions, setTransactions }) {
     const onDelete = (id) => {
-        axios.delete(`https://localhost:5177/api/Transaction/${id}`)
+        axios.delete(`${BASE_URL}/Transaction/${id}`)
             .then(() => {
                 fetchTransactions();
             })
@@ -14,7 +15,7 @@ function Table({ transactions, setTransactions }) {
             });
     };
     const fetchTransactions = () => {
-        axios.get('https://localhost:5177/api/TransactionResult')
+        axios.get(`${BASE_URL}/TransactionResult`)
             .then((response) => {
                 setTransactions(response.data);
             })
