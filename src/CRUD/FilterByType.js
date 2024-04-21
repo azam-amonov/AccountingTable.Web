@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import Table from '../Tables/Table';
+import BASE_URL from "../configuration/apiConfig";
 
 function FilterByType(){
     const [accounting, setAccounting] = useState('');
@@ -16,7 +17,7 @@ function FilterByType(){
             return;
         }
         
-        axios.get(`https://localhost:5177/api/TransactionResult/type/${accounting}`)
+        axios.get(`${BASE_URL}/TransactionResult/type/${accounting}`)
             .then((response) =>{
                 setTypedTransaction(response.data);
                 console.log(typedTransaction);
