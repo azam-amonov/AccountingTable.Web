@@ -2,6 +2,7 @@ import React, {useEffect, useState } from 'react';
 import uuid from "react-uuid";
 import './Form.css'
 import axios from "axios";
+import BASE_URL from "../configuration/apiConfig";
 
 function AddTransactionsForm({ addRecord }) {
     const currentDate = new Date().toISOString().slice(0, 16)
@@ -16,7 +17,7 @@ function AddTransactionsForm({ addRecord }) {
     }, []);
 
     const fetchCategories = () => {
-        axios.get('https://localhost:5177/api/Category')
+        axios.get(`${BASE_URL}/Category`)
             .then((response) => {
                 setCategories(response.data)
             })
@@ -48,7 +49,7 @@ function AddTransactionsForm({ addRecord }) {
             };
             
             const response =
-                await axios.post('https://localhost:5177/api/Transaction', newTransaction);
+                await axios.post(`${BASE_URL}/Transaction`, newTransaction);
             console.log("Category created", response.data);
             setCategory('');
             setDate(currentDate);
