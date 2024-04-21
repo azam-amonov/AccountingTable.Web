@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Form.css';
 import axios from "axios";
+import BASE_URL from "../configuration/apiConfig";
 
 function EditDeleteCategoryForm() {
     const [categories, setCategories] = useState([]);
@@ -11,7 +12,7 @@ function EditDeleteCategoryForm() {
     }, []);
 
     const fetchData = () => {
-        axios.get('https://localhost:5177/api/Category')
+        axios.get(`${BASE_URL}/Category`)
             .then((response) => {
                 setCategories(response.data);
             })
@@ -31,7 +32,7 @@ function EditDeleteCategoryForm() {
             return;
         }
 
-        axios.delete(`https://localhost:5177/api/Category/${selectedCat.id}`)
+        axios.delete(`${BASE_URL}/Category/${selectedCat.id}`)
             .then(() => {
                 fetchData(); 
             })
