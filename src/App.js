@@ -7,6 +7,7 @@ import SelectCategoriesFilter from "./CRUD/SelectCategoriesFilter";
 import axios from 'axios';
 import FilterByDate from "./CRUD/FilterByDate";
 import FilterByType from "./CRUD/FilterByType";
+import BASE_URL from "./configuration/apiConfig";
 
 function App() {
     const [transactions, setTransactions] = useState([]);
@@ -17,7 +18,7 @@ function App() {
     }, []);
 
     const fetchTransactions = () => {
-        axios.get('https://localhost:5177/api/TransactionResult')
+        axios.get(`${BASE_URL}/TransactionResult`)
             .then((response) => {
                 setTransactions(response.data);
             })
