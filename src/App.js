@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Table from './Tables/Table';
 import AddTransactionsForm from './CRUD/AddTransactionsForm';
 import AddCategoryForm from './CRUD/AddCategoryForm';
@@ -18,9 +18,7 @@ function App() {
                 <EditDeleteCategoryForm/>
                 <FilterByType/>
                 <FilterByDate/>
-                
-            
-                {/*<SelectCategoriesFilter />*/}
+                <SelectCategoriesFilter/>
                 <Table/>
             </div>
         </TransactionProvider>
