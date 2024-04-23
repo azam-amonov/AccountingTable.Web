@@ -13,10 +13,6 @@ function App() {
     const [transactions, setTransactions] = useState([]);
     const [filteredTransactions, setFilteredTransactions] = useState([]);
 
-    useEffect(() => {
-        fetchTransactions();
-    }, []);
-
     const fetchTransactions = () => {
         axios.get(`${BASE_URL}/TransactionResult`)
             .then((response) => {
@@ -26,7 +22,9 @@ function App() {
                 console.error('Error fetching transactions:', error);
             });
     };
-
+    useEffect(() => {
+        fetchTransactions();
+    }, []);
     return (
         <div className={"app-container"} align={"center"}>
             <h1>Micro Accounting</h1>
