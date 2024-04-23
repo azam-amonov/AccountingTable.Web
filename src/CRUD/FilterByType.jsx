@@ -3,7 +3,7 @@ import {TransactionsContext} from '../Context/TransactionsContext';
 
 function FilterByType(){
     const [accounting, setAccounting] = useState('');
-const {filterTransactionsByType} = useContext(TransactionsContext);   
+    const {filterTransactionsByType} = useContext(TransactionsContext);   
     const handleTypeChange = (e) => {
         setAccounting(e.target.value)
     }
