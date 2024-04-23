@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import uuid from "react-uuid";
-import './Form.css';
+import '../../CRUD/Form.css';
 import axios from "axios";
-import BASE_URL from "../api/apiConfig";
+import BASE_URL from "../../api/apiConfig";
 
 function AddCategoryForm() {
     const [category, setCategory] = useState({
