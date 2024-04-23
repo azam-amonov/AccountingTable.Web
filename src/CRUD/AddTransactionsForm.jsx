@@ -1,30 +1,22 @@
-import React, {useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import uuid from "react-uuid";
 import './Form.css'
 import axios from "axios";
 import BASE_URL from "../configuration/apiConfig";
+import {CategoryContext} from "../Context/CategoryContext";
 
 function AddTransactionsForm() {
     const currentDate = new Date().toISOString().slice(0, 16)
-    const [categories, setCategories] = useState([])
     const [category, setCategory] = useState('');
     const [date, setDate] = useState(currentDate);
     const [amount, setAmount] = useState('');
     const [comment, setComment] = useState('');
+    const { categories, fetchCategories } = useContext(CategoryContext);
 
     useEffect(() => {
         fetchCategories()
     }, []);
-
-    const fetchCategories = () => {
-        axios.get(`${BASE_URL}/Category`)
-            .then((response) => {
-                setCategories(response.data)
-            })
-            .catch((error) => {
-                console.error("Error fetching Category: ", error);
-            });
-    };
+    
 
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
