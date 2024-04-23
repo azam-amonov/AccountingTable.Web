@@ -1,30 +1,21 @@
-import React, { useState } from 'react';
-import axios from "axios";
-import BASE_URL from "../configuration/apiConfig";
+import React, { useState, useContext } from 'react';
+import {TransactionsContext} from '../Context/TransactionsContext';
 
 function FilterByType(){
     const [accounting, setAccounting] = useState('');
-    const [typedTransaction, setTypedTransaction] = useState([]);
-    
+const {filterTransactionsByType} = useContext(TransactionsContext);   
     const handleTypeChange = (e) => {
         setAccounting(e.target.value)
     }
-    
+  
     const onGetType = () => {
         if (!accounting){
             console.error('Please select a type')
             return;
         }
         
-        axios.get(`${BASE_URL}/TransactionResult/type/${accounting}`)
-            .then((response) =>{
-                setTypedTransaction(response.data);
-                console.log(typedTransaction);
-            })
-            .catch((error) => {
-                console.error('Error fetching transaction: ', error);
-            })
-        };
+        filterTransactionsByType(accounting);
+    };
     
     return (
         <div>
@@ -43,7 +34,6 @@ function FilterByType(){
             <button type='button' onClick={onGetType}> Sort Type</button>
         </form>
         </div>
-
     )
 }
 
