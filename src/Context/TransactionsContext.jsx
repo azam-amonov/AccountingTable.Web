@@ -44,13 +44,24 @@ const TransactionProvider = ({children}) => {
             })
     }
     
+    const filterTransactionsByCategories = (categories) => {
+        axios.get(`${BASE_URL}/TransactionResult/names?${categories}`)
+            .then(response => {
+                setFilteredTransactions(response.data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            })
+    }
+    
     return (
         <TransactionsContext.Provider value={{
             transactions, 
             fetchTransactions, 
             filteredTransactions, 
             filterTransactionsByType,
-            filterTransactionsByDate}}>
+            filterTransactionsByDate,
+            filterTransactionsByCategories}}>
             {children}
         </TransactionsContext.Provider>
     );
