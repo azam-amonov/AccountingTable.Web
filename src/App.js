@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from './Tables/Table';
+import Table from './tables/Table';
 import AddTransactionsForm from './copmonents/AddTransaction/AddTransactionsForm';
 import AddCategoryForm from './copmonents/AddCategory/AddCategoryForm';
 import DeleteCategoryForm from "./copmonents/DeleteCategory/DeleteCategoryForm";
