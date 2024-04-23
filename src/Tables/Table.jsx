@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
+import {TransactionsContext} from "../Context/TransactionsContext";
 import axios from 'axios';
 import './Table.css'
 import { numberToCurrency } from "../service/parser";
 import BASE_URL from "../configuration/apiConfig";
 
-function Table({ transactions, setTransactions }) {
+function Table() {
+    const { transactions, filteredTransactions, fetchTransactions } = useContext(TransactionsContext);
+    let displayTransactions;
+    
     const onDelete = (id) => {
         axios.delete(`${BASE_URL}/Transaction/${id}`)
             .then(() => {
@@ -14,17 +18,21 @@ function Table({ transactions, setTransactions }) {
                 console.error('Error deleting transaction:', error);
             });
     };
-    const fetchTransactions = () => {
-        axios.get(`${BASE_URL}/TransactionResult`)
-            .then((response) => {
-                setTransactions(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching transactions:', error);
-            });
-    };
+    
 
+    
+    if (filteredTransactions.length > 0) {
+        displayTransactions = filteredTransactions;
+    }else {
+        displayTransactions = transactions;
+    }
+    const onReset = () => {
+        displayTransactions = transactions;
+    }
+    
     return (
+        <div>
+            <button onClick={() => onReset()}> Reset </button>
         <table>
             <thead>
             <tr>
@@ -38,7 +46,7 @@ function Table({ transactions, setTransactions }) {
             </tr>
             </thead>
             <tbody>
-            {transactions.map(({ transaction, category }) => (
+            {displayTransactions.map(({transaction, category}) => (
                 <tr key={transaction.id}>
                     <td>{transaction.id}</td>
                     <td>{category.accounting === 0 ? 'Income' : 'Expenses'}</td>
@@ -53,6 +61,7 @@ function Table({ transactions, setTransactions }) {
             ))}
             </tbody>
         </table>
+        </div>
     );
 }
 
