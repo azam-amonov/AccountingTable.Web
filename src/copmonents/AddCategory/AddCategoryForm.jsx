@@ -11,8 +11,8 @@ function AddCategoryForm() {
         accounting: ''
     });
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+    const handleChange = (e) => {
+        const { name, value } = e.target;
         setCategory((prevState) => ({
             ...prevState,
             [name]: name === 'accounting' ? parseInt(value) : value,
