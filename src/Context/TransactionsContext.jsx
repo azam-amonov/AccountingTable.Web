@@ -21,6 +21,16 @@ const TransactionProvider = ({children}) => {
                 console.error('Error fetching transactions:', error);
             });
     };
+    
+    const deleteTransactionsById = (id) => {
+        axios.delete(`${BASE_URL}/Transaction/${id}`)
+            .then(() => {
+                fetchTransactions();
+            })
+            .catch((error) => {
+                console.error('Error deleting transaction:', error);
+            });
+    }
 
     const filterTransactionsByType = (type) => {
         axios.get(`${BASE_URL}/TransactionResult/type/${type}`)
@@ -57,7 +67,8 @@ const TransactionProvider = ({children}) => {
     return (
         <TransactionsContext.Provider value={{
             transactions, 
-            fetchTransactions, 
+            fetchTransactions,
+            deleteTransactionsById,
             filteredTransactions, 
             filterTransactionsByType,
             filterTransactionsByDate,

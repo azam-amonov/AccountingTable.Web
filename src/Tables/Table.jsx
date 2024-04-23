@@ -1,22 +1,14 @@
 import React, {useContext} from 'react';
 import {TransactionsContext} from "../Context/TransactionsContext";
-import axios from 'axios';
 import './Table.css'
 import { numberToCurrency } from "../service/parser";
-import BASE_URL from "../configuration/apiConfig";
 
 function Table() {
-    const { transactions, filteredTransactions, fetchTransactions } = useContext(TransactionsContext);
+    const { transactions, filteredTransactions, fetchTransactions , deleteTransactionsById} = useContext(TransactionsContext);
     let displayTransactions;
     
     const onDelete = (id) => {
-        axios.delete(`${BASE_URL}/Transaction/${id}`)
-            .then(() => {
-                fetchTransactions();
-            })
-            .catch((error) => {
-                console.error('Error deleting transaction:', error);
-            });
+        deleteTransactionsById(id);
     };
     
     if (filteredTransactions.length > 0) {
