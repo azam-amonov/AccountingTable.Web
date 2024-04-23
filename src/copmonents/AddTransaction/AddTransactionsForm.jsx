@@ -29,8 +29,7 @@ function AddTransactionsForm() {
             if (!selectedCategory) {
                 console.error("Selected Category not found");
             }
-
-
+            
             const newTransaction = {
                 id: uuid(),
                 userId: "47729a8b-e359-493e-a982-e7c818cd1220",
