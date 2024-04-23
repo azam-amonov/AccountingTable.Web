@@ -6,6 +6,7 @@ import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
 import SelectCategoriesFilter from "./CRUD/SelectCategoriesFilter";
 import {TransactionProvider} from "./Context/TransactionsContext";
 import FilterByType from "./CRUD/FilterByType";
+import FilterByDate from "./CRUD/FilterByDate";
 
 function App() {
     return (
@@ -16,9 +17,10 @@ function App() {
                 <AddCategoryForm/>
                 <EditDeleteCategoryForm/>
                 <FilterByType/>
+                <FilterByDate/>
+                
             
                 {/*<SelectCategoriesFilter />*/}
-                {/*<FilterByDate/>*/}
                 <Table/>
             </div>
         </TransactionProvider>

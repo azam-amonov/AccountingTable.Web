@@ -7,7 +7,7 @@ const TransactionsContext = createContext();
 const TransactionProvider = ({children}) => {
     const [transactions, setTransactions] = useState([]);
     const [filteredTransactions, setFilteredTransactions] = useState([]);
-
+    
     useEffect(() => {
         fetchTransactions();
     }, []);
@@ -32,12 +32,25 @@ const TransactionProvider = ({children}) => {
             });
     };
     
+    const  filterTransactionsByDate =(startDate, endDate) => {
+        const formattedStartDate = startDate.toISOString().split('T')[0];
+        const formattedEndDate = endDate.toISOString().split('T')[0];
+        axios.get(`${BASE_URL}/TransactionResult/between/date?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
+            .then(response => {
+                setFilteredTransactions(response.data);
+            })
+            .catch((error) => {
+                console.error('Error getting transaction', error);
+            })
+    }
+    
     return (
         <TransactionsContext.Provider value={{
             transactions, 
             fetchTransactions, 
             filteredTransactions, 
-            filterTransactionsByType}}>
+            filterTransactionsByType,
+            filterTransactionsByDate}}>
             {children}
         </TransactionsContext.Provider>
     );
