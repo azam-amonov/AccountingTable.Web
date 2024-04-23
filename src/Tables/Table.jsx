@@ -19,8 +19,6 @@ function Table() {
             });
     };
     
-
-    
     if (filteredTransactions.length > 0) {
         displayTransactions = filteredTransactions;
     }else {
