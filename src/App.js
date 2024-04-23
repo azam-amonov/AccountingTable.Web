@@ -3,7 +3,7 @@ import Table from './Tables/Table';
 import AddTransactionsForm from './copmonents/AddTransaction/AddTransactionsForm';
 import AddCategoryForm from './copmonents/AddCategory/AddCategoryForm';
 import DeleteCategoryForm from "./copmonents/DeleteCategory/DeleteCategoryForm";
-import SelectCategoriesFilter from "./CRUD/SelectCategoriesFilter";
+import FilterByCategory from "./copmonents/TransactionsList/FilterByCategory";
 import {TransactionProvider} from "./Context/TransactionsContext";
 import FilterByType from "./copmonents/TransactionsList/FilterByType";
 import FilterByDate from "./copmonents/TransactionsList/FilterByDate";
@@ -20,7 +20,7 @@ function App() {
                 <DeleteCategoryForm/>
                 <FilterByType/>
                 <FilterByDate/>
-                <SelectCategoriesFilter/>
+                <FilterByCategory/>
                 <Table/>
             </div>
             </CategoryProvider>
