@@ -1,6 +1,6 @@
 import React,{createContext, useState, useEffect} from "react";
 import axios from "axios";
-import BASE_URL from "../configuration/apiConfig";
+import BASE_URL from "../api/apiConfig";
 
 const TransactionsContext = createContext();
 
