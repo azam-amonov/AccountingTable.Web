@@ -24,13 +24,10 @@ function Table() {
     }else {
         displayTransactions = transactions;
     }
-    const onReset = () => {
-        displayTransactions = transactions;
-    }
+  
     
     return (
         <div>
-            <button onClick={() => onReset()}> Reset </button>
         <table>
             <thead>
             <tr>
