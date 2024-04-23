@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import Table from '../Tables/Table';
 import "react-datepicker/dist/react-datepicker.css";
 import './Form.css';
 import DatePicker from 'react-datepicker';
