@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import uuid from "react-uuid";
 import '../shared/Form.css';
-import axios from "axios";
-import BASE_URL from "../../api/apiConfig";
+import {CategoryContext} from "../../context/CategoryContext";
 
 function AddCategoryForm() {
+    const {addCategory} = useContext(CategoryContext);
     const [category, setCategory] = useState({
         id: uuid(),
         name: '',
         accounting: ''
     });
-
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setCategory((prevState) => ({
@@ -22,7 +22,7 @@ function AddCategoryForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${BASE_URL}/Category`, category);
+            const response = addCategory(category);
             console.log("Category created", response.data);
             setCategory({ 
                 id: uuid(), 

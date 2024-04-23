@@ -18,6 +18,15 @@ const CategoryProvider = ({children}) => {
             console.error('Error fetching Categories: ', error)
         })
     }
+    
+    const addCategory = async (category) => {
+        await axios.post(`${BASE_URL}/Category`, category)
+            .then(() => {
+                fetchCategories()
+            }).catch((error) =>
+            console.error('Error creating category: ', error));
+    }
+    
     const deleteCategoryById = (id) =>{
         axios.delete(`${BASE_URL}/Category/${id}`)
             .then(() => {
@@ -32,6 +41,7 @@ const CategoryProvider = ({children}) => {
         <CategoryContext.Provider value={{
             categories,
             fetchCategories,
+            addCategory,
             deleteCategoryById
         }}>
             {children}
