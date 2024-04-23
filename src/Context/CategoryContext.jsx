@@ -4,7 +4,7 @@ import BASE_URL from "../configuration/apiConfig";
 
 const CategoryContext = createContext();
 const CategoryProvider = ({children}) => {
-    const [category, setCategory] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         fetchCategories()
@@ -13,7 +13,7 @@ const CategoryProvider = ({children}) => {
     const fetchCategories = () => {
         axios.get(`${BASE_URL}/Category`)
             .then((response) => {
-                setCategory(response.data);
+                setCategories(response.data);
             }).catch(error => {
             console.error('Error fetching Categories: ', error)
         })
@@ -21,7 +21,7 @@ const CategoryProvider = ({children}) => {
 
     return (
         <CategoryContext.Provider value={{
-            category,
+            category: categories,
             fetchCategories
         }}>
             {children}
