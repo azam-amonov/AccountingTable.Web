@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 import '../shared/Form.css'
 import axios from "axios";
 import BASE_URL from "../../api/apiConfig";
-import {CategoryContext} from "../../Context/CategoryContext";
+import {CategoryContext} from "../../context/CategoryContext";
 
 function AddTransactionsForm() {
     const currentDate = new Date().toISOString().slice(0, 16)

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import {TransactionsContext} from '../../Context/TransactionsContext';
+import {TransactionsContext} from '../../context/TransactionsContext';
 
 function FilterByType(){
     const [accounting, setAccounting] = useState('');

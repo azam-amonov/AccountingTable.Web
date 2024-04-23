@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {TransactionsContext} from "../Context/TransactionsContext";
+import {TransactionsContext} from "../context/TransactionsContext";
 import './Table.css'
 import { numberToCurrency } from "../service/parser";
 

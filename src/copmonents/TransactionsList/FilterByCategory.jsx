@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select';
 import '../shared/Form.css';
-import {TransactionsContext} from "../../Context/TransactionsContext";
-import {CategoryContext} from "../../Context/CategoryContext";
+import {TransactionsContext} from "../../context/TransactionsContext";
+import {CategoryContext} from "../../context/CategoryContext";
 
 function FilterByCategory() {
     const [selectedCategories, setSelectedCategories] = useState([]);

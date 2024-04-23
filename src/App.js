@@ -4,10 +4,10 @@ import AddTransactionsForm from './copmonents/AddTransaction/AddTransactionsForm
 import AddCategoryForm from './copmonents/AddCategory/AddCategoryForm';
 import DeleteCategoryForm from "./copmonents/DeleteCategory/DeleteCategoryForm";
 import FilterByCategory from "./copmonents/TransactionsList/FilterByCategory";
-import {TransactionProvider} from "./Context/TransactionsContext";
+import {TransactionProvider} from "./context/TransactionsContext";
 import FilterByType from "./copmonents/TransactionsList/FilterByType";
 import FilterByDate from "./copmonents/TransactionsList/FilterByDate";
-import {CategoryProvider} from "./Context/CategoryContext";
+import {CategoryProvider} from "./context/CategoryContext";
 
 function App() {
     return (

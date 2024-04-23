@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import '../shared/Form.css';
-import {CategoryContext} from "../../Context/CategoryContext";
+import {CategoryContext} from "../../context/CategoryContext";
 
 function DeleteCategoryForm() {
     const {categories, fetchCategories, deleteCategoryById} = useContext(CategoryContext);
