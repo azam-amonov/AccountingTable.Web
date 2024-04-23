@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select';
 import './Form.css';
 import axios from "axios";
-import Table from "../Tables/Table";
 import BASE_URL from "../configuration/apiConfig";
+import {TransactionsContext} from "../Context/TransactionsContext";
 
 function SelectCategoriesFilter() {
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const [filteredTransactions, setFilteredTransactions] = useState([]);
+    const {filterTransactionsByCategories} = useContext(TransactionsContext);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/Category`)
@@ -26,13 +26,7 @@ function SelectCategoriesFilter() {
         e.preventDefault();
         console.log("Selected Categories:", selectedCategories);
         const categoryNames = selectedCategories.map(category => `name=${category}`).join('&');
-        axios.get(`${BASE_URL}/TransactionResult/names?${categoryNames}`)
-            .then(response => {
-                setFilteredTransactions(response.data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            })
+        filterTransactionsByCategories(categoryNames);
     };
     
     const customStyles = {
@@ -66,7 +60,6 @@ function SelectCategoriesFilter() {
             &nbsp; &nbsp;
             <button type='submit' className={'filter-button'} > Filter </button>
         </form>
-            <Table transactions={filteredTransactions}></Table>
         </div>
     );
 }
