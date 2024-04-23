@@ -2,8 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select';
 import './Form.css';
-import axios from "axios";
-import BASE_URL from "../configuration/apiConfig";
 import {TransactionsContext} from "../Context/TransactionsContext";
 import {CategoryContext} from "../Context/CategoryContext";
 
@@ -13,10 +11,7 @@ function SelectCategoriesFilter() {
     const {categories, fetchCategories} = useContext(CategoryContext);
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/Category`)
-            .then((response) => {
-                setCategories(response.data);
-            })
+        fetchCategories();
     }, []);
 
     const onSelectChange = (selectedOptions) => {
