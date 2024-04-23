@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {TransactionsContext} from "../Context/TransactionsContext";
 import axios from 'axios';
 import './Table.css'
@@ -24,7 +24,6 @@ function Table() {
     }else {
         displayTransactions = transactions;
     }
-  
     
     return (
         <div>
