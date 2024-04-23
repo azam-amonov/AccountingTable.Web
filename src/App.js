@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Tables/Table';
-import AddTransactionsForm from './CRUD/AddTransactionsForm';
+import AddTransactionsForm from './copmonents/AddTransaction/AddTransactionsForm';
 import AddCategoryForm from './copmonents/AddCategory/AddCategoryForm';
 import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
 import SelectCategoriesFilter from "./CRUD/SelectCategoriesFilter";

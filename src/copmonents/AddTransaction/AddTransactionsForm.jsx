@@ -1,9 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import uuid from "react-uuid";
-import './Form.css'
+import '../../CRUD/Form.css'
 import axios from "axios";
-import BASE_URL from "../api/apiConfig";
-import {CategoryContext} from "../Context/CategoryContext";
+import BASE_URL from "../../api/apiConfig";
+import {CategoryContext} from "../../Context/CategoryContext";
 
 function AddTransactionsForm() {
     const currentDate = new Date().toISOString().slice(0, 16)
