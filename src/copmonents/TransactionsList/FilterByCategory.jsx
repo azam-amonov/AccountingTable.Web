@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select';
-import '../../CRUD/Form.css';
+import '../shared/Form.css';
 import {TransactionsContext} from "../../Context/TransactionsContext";
 import {CategoryContext} from "../../Context/CategoryContext";
 

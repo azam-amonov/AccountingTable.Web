@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import uuid from "react-uuid";
-import '../../CRUD/Form.css'
+import '../shared/Form.css'
 import axios from "axios";
 import BASE_URL from "../../api/apiConfig";
 import {CategoryContext} from "../../Context/CategoryContext";

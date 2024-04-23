@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import '../../CRUD/Form.css';
+import '../shared/Form.css';
 import {CategoryContext} from "../../Context/CategoryContext";
 
 function DeleteCategoryForm() {

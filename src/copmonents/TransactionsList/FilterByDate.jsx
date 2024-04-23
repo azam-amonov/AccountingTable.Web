@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
-import '../../CRUD/Form.css';
+import '../shared/Form.css';
 import DatePicker from 'react-datepicker';
 import {TransactionsContext} from "../../Context/TransactionsContext";
 
