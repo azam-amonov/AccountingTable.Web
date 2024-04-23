@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import Table from '../Tables/Table';
 import BASE_URL from "../configuration/apiConfig";
 
 function FilterByType(){
@@ -43,7 +42,6 @@ function FilterByType(){
             &nbsp; &nbsp;
             <button type='button' onClick={onGetType}> Sort Type</button>
         </form>
-            <Table transactions={typedTransaction}></Table>
         </div>
 
     )
