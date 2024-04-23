@@ -5,11 +5,12 @@ import './Form.css';
 import axios from "axios";
 import BASE_URL from "../configuration/apiConfig";
 import {TransactionsContext} from "../Context/TransactionsContext";
+import {CategoryContext} from "../Context/CategoryContext";
 
 function SelectCategoriesFilter() {
-    const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const {filterTransactionsByCategories} = useContext(TransactionsContext);
+    const {categories, fetchCategories} = useContext(CategoryContext);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/Category`)
