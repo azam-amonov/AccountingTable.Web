@@ -7,7 +7,7 @@ function Table() {
     const { 
         transactions, 
         filteredTransactions, 
-        deleteTransactionsById} = useContext(TransactionsContext);
+        deleteTransactionsById } = useContext(TransactionsContext);
     let displayTransactions;
     
     const onDelete = (id) => {

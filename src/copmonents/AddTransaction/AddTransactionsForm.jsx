@@ -17,7 +17,6 @@ function AddTransactionsForm() {
         fetchCategories()
     }, []);
     
-
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
     };
