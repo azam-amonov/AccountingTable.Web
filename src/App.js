@@ -2,11 +2,11 @@ import React from 'react';
 import Table from './Tables/Table';
 import AddTransactionsForm from './copmonents/AddTransaction/AddTransactionsForm';
 import AddCategoryForm from './copmonents/AddCategory/AddCategoryForm';
-import EditDeleteCategoryForm from "./CRUD/EditDeleteCategoryForm";
+import DeleteCategoryForm from "./copmonents/DeleteCategory/DeleteCategoryForm";
 import SelectCategoriesFilter from "./CRUD/SelectCategoriesFilter";
 import {TransactionProvider} from "./Context/TransactionsContext";
 import FilterByType from "./CRUD/FilterByType";
-import FilterByDate from "./CRUD/FilterByDate";
+import FilterByDate from "./copmonents/TransactionsList/FilterByDate";
 import {CategoryProvider} from "./Context/CategoryContext";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
                 <h1>Micro Accounting</h1>
                 <AddTransactionsForm/>
                 <AddCategoryForm/>
-                <EditDeleteCategoryForm/>
+                <DeleteCategoryForm/>
                 <FilterByType/>
                 <FilterByDate/>
                 <SelectCategoriesFilter/>

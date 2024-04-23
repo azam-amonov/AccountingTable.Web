@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
-import './Form.css';
-import {CategoryContext} from "../Context/CategoryContext";
+import '../../CRUD/Form.css';
+import {CategoryContext} from "../../Context/CategoryContext";
 
-function EditDeleteCategoryForm() {
+function DeleteCategoryForm() {
     const {categories, fetchCategories, deleteCategoryById} = useContext(CategoryContext);
     const [selectedCategory, setSelectedCategory] = useState('');
     
@@ -42,4 +42,4 @@ function EditDeleteCategoryForm() {
     );
 }
 
-export default EditDeleteCategoryForm;
+export default DeleteCategoryForm;
