@@ -1,26 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './Form.css';
 import axios from "axios";
 import BASE_URL from "../configuration/apiConfig";
+import {CategoryContext} from "../Context/CategoryContext";
 
 function EditDeleteCategoryForm() {
-    const [categories, setCategories] = useState([]);
+    const {categories, fetchCategories} = useContext(CategoryContext);
     const [selectedCategory, setSelectedCategory] = useState('');
+    
 
     useEffect(() => {
-        fetchData();
+        fetchCategories();
     }, []);
-
-    const fetchData = () => {
-        axios.get(`${BASE_URL}/Category`)
-            .then((response) => {
-                setCategories(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching categories:', error);
-            });
-    };
-
+    
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
     };
@@ -34,7 +26,7 @@ function EditDeleteCategoryForm() {
 
         axios.delete(`${BASE_URL}/Category/${selectedCat.id}`)
             .then(() => {
-                fetchData(); 
+                fetchCategories(); 
             })
             .catch((error) => {
                 console.error('Error deleting category:', error);
