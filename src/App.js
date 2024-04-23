@@ -5,7 +5,7 @@ import AddCategoryForm from './copmonents/AddCategory/AddCategoryForm';
 import DeleteCategoryForm from "./copmonents/DeleteCategory/DeleteCategoryForm";
 import SelectCategoriesFilter from "./CRUD/SelectCategoriesFilter";
 import {TransactionProvider} from "./Context/TransactionsContext";
-import FilterByType from "./CRUD/FilterByType";
+import FilterByType from "./copmonents/TransactionsList/FilterByType";
 import FilterByDate from "./copmonents/TransactionsList/FilterByDate";
 import {CategoryProvider} from "./Context/CategoryContext";
 
