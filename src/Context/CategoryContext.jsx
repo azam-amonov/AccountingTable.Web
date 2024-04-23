@@ -18,11 +18,21 @@ const CategoryProvider = ({children}) => {
             console.error('Error fetching Categories: ', error)
         })
     }
+    const deleteCategoryById = (id) =>{
+        axios.delete(`${BASE_URL}/Category/${id}`)
+            .then(() => {
+                fetchCategories();
+            })
+            .catch((error) => {
+                console.error('Error deleting category:', error);
+            });
+    }
 
     return (
         <CategoryContext.Provider value={{
             categories,
-            fetchCategories
+            fetchCategories,
+            deleteCategoryById
         }}>
             {children}
         </CategoryContext.Provider>);

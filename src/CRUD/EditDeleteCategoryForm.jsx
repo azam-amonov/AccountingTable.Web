@@ -1,11 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './Form.css';
-import axios from "axios";
-import BASE_URL from "../configuration/apiConfig";
 import {CategoryContext} from "../Context/CategoryContext";
 
 function EditDeleteCategoryForm() {
-    const {categories, fetchCategories} = useContext(CategoryContext);
+    const {categories, fetchCategories, deleteCategoryById} = useContext(CategoryContext);
     const [selectedCategory, setSelectedCategory] = useState('');
     
 
@@ -23,14 +21,7 @@ function EditDeleteCategoryForm() {
             console.error('Selected category not found');
             return;
         }
-
-        axios.delete(`${BASE_URL}/Category/${selectedCat.id}`)
-            .then(() => {
-                fetchCategories(); 
-            })
-            .catch((error) => {
-                console.error('Error deleting category:', error);
-            });
+        deleteCategoryById(selectedCat.id)
     };
 
     return (
