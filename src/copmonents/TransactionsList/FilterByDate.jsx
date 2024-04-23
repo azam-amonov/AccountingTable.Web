@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
-import './Form.css';
+import '../../CRUD/Form.css';
 import DatePicker from 'react-datepicker';
-import {TransactionsContext} from "../Context/TransactionsContext";
+import {TransactionsContext} from "../../Context/TransactionsContext";
 
 function FilerByDate(){
     const [startDate, setStartDate] = useState(new Date());
