@@ -4,7 +4,7 @@ import './Table.css'
 import { numberToCurrency } from "../service/parser";
 
 function Table() {
-    const { transactions, filteredTransactions, fetchTransactions , deleteTransactionsById} = useContext(TransactionsContext);
+    const { transactions, filteredTransactions, deleteTransactionsById} = useContext(TransactionsContext);
     let displayTransactions;
     
     const onDelete = (id) => {
