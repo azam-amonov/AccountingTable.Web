@@ -1,25 +1,32 @@
-import React, { useContext } from 'react';
-import {TransactionResultContext} from "../context/TransactionResultContext";
-import {TransactionContext} from "../context/TransactionContext";
-import './Table.css'
+import React, {useContext, useState} from 'react';
 import { numberToCurrency } from "../service/parser";
+import { TransactionResultContext } from "../context/TransactionResultContext";
+import { TransactionContext } from "../context/TransactionContext";
+import './Table.css'
 
 function Table() {
     let displayTransactions;
-    const { transactionResults, filteredTransactionResults, fetchTransactionResult } = useContext(TransactionResultContext);
-    const { deleteTransactionById } = useContext(TransactionContext);
+    const {
+        transactionResults,
+        filteredTransactionResults,
+        fetchTransactionResult
+    } = useContext(TransactionResultContext);
     
-    const onDelete = (id) => {
+    const {transactions, setTransactions, updateTransaction, deleteTransactionById} = useContext(TransactionContext);
+    const [updateState, setUpdateState] = useState();
+    
+    const handleDelete = (id) => {
         deleteTransactionById(id);
         fetchTransactionResult();
     };
     
     if (filteredTransactionResults.length > 0) {
         displayTransactions = filteredTransactionResults;
-    }else {
+    } else {
         displayTransactions = transactionResults;
     }
-    
+
+
     return (
         <div>
         <table>
