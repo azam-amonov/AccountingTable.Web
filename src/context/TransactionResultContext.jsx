@@ -2,11 +2,11 @@ import React,{createContext, useState, useEffect} from "react";
 import axios from "axios";
 import BASE_URL from "../api/apiConfig";
 
-const TransactionsContext = createContext();
+const TransactionResultContext = createContext();
 
-const TransactionProvider = ({children}) => {
-    const [transactions, setTransactions] = useState([]);
-    const [filteredTransactions, setFilteredTransactions] = useState([]);
+const TransactionResultProvider = ({children}) => {
+    const [transactionResults, setTransactionResults] = useState([]);
+    const [filteredTransactionResults, setFilteredTransactionResults] = useState([]);
     
     useEffect(() => {
         fetchTransactions();
@@ -15,7 +15,7 @@ const TransactionProvider = ({children}) => {
     const fetchTransactions = () => {
         axios.get(`${BASE_URL}/TransactionResult`)
             .then(response => {
-                setTransactions(response.data);
+                setTransactionResults(response.data);
             })
             .catch(error => {
                 console.error('Error fetching transactions:', error);
@@ -35,7 +35,7 @@ const TransactionProvider = ({children}) => {
     const filterTransactionsByType = (type) => {
         axios.get(`${BASE_URL}/TransactionResult/type/${type}`)
             .then(response => {
-                setFilteredTransactions(response.data);
+                setFilteredTransactionResults(response.data);
             })
             .catch(error => {
                 console.error('Error filtering transactions by type:', error);
@@ -47,7 +47,7 @@ const TransactionProvider = ({children}) => {
         const formattedEndDate = endDate.toISOString().split('T')[0];
         axios.get(`${BASE_URL}/TransactionResult/between/date?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
             .then(response => {
-                setFilteredTransactions(response.data);
+                setFilteredTransactionResults(response.data);
             })
             .catch((error) => {
                 console.error('Error getting transaction', error);
@@ -57,7 +57,7 @@ const TransactionProvider = ({children}) => {
     const filterTransactionsByCategories = (categories) => {
         axios.get(`${BASE_URL}/TransactionResult/names?${categories}`)
             .then(response => {
-                setFilteredTransactions(response.data);
+                setFilteredTransactionResults(response.data);
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -65,17 +65,18 @@ const TransactionProvider = ({children}) => {
     }
     
     return (
-        <TransactionsContext.Provider value={{
-            transactions, 
+        <TransactionResultContext.Provider value={{
+            transactions: transactionResults,
+            setTransactions: setTransactionResults,
             fetchTransactions,
             deleteTransactionsById,
-            filteredTransactions, 
+            filteredTransactions: filteredTransactionResults, 
             filterTransactionsByType,
             filterTransactionsByDate,
             filterTransactionsByCategories}}>
             {children}
-        </TransactionsContext.Provider>
+        </TransactionResultContext.Provider>
     );
 };
 
-export {TransactionProvider, TransactionsContext};
+export {TransactionResultProvider, TransactionResultContext};
