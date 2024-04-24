@@ -80,7 +80,7 @@ function Table() {
         setUpdateState(id)
     }
 
-    function Edit({transaction, category, transactions, setTransactions, onUpdate}){
+    function Edit({transaction, category,onUpdate }){
         const [editedTransaction, setEditedTransaction] = useState(transaction);
         
         function handleChange(e){
@@ -94,6 +94,7 @@ function Table() {
             e.preventDefault();
             onUpdate(editedTransaction)
             console.log(editedTransaction)
+            fetchTransactionResult()
             setUpdateState(null);
         }
         return(
@@ -129,9 +130,6 @@ function Table() {
         )
     }
     
-    
-    
 };
-
 
 export default Table;
