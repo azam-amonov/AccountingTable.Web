@@ -2,12 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select';
 import '../shared/Form.css';
-import {TransactionsContext} from "../../context/TransactionsContext";
+import {TransactionResultContext} from "../../context/TransactionResultContext";
 import {CategoryContext} from "../../context/CategoryContext";
 
 function FilterByCategory() {
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const {filterTransactionsByCategories} = useContext(TransactionsContext);
+    const {filterTransactionsByCategories} = useContext(TransactionResultContext);
     const {categories, fetchCategories} = useContext(CategoryContext);
 
     useEffect(() => {
