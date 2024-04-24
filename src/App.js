@@ -8,10 +8,12 @@ import {TransactionResultProvider} from "./context/TransactionResultContext";
 import FilterByType from "./copmonents/TransactionsList/FilterByType";
 import FilterByDate from "./copmonents/TransactionsList/FilterByDate";
 import {CategoryProvider} from "./context/CategoryContext";
+import {TransactionProvider} from "./context/TransactionContext";
 
 function App() {
     return (
         <TransactionResultProvider>
+            <TransactionProvider>
             <CategoryProvider>
             <div className={"app-container"} align={"center"}>
                 <h1>Micro Accounting</h1>
@@ -24,6 +26,7 @@ function App() {
                 <Table/>
             </div>
             </CategoryProvider>
+            </TransactionProvider>
         </TransactionResultProvider>
     );
 }
