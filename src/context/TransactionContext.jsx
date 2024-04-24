@@ -27,6 +27,13 @@ const TransactionProvider = ({children}) => {
                 console.error('Error add transaction', error);
             });
     }
+    
+    const updateTransaction = async (transaction) => {
+        await axios.put(`${BASE_URL}/Transaction`, transaction)
+            .catch((error) => {
+                console.error('Error add transaction', error);
+            });
+    }
 
     const deleteTransactionById = (id) => {
         axios.delete(`${BASE_URL}/Transaction/${id}`)
@@ -41,6 +48,7 @@ const TransactionProvider = ({children}) => {
           setTransactions,
           fetchTransaction,
           addTransaction,
+          updateTransaction,
           deleteTransactionById}}>
           {children}
       </TransactionContext.Provider>  
