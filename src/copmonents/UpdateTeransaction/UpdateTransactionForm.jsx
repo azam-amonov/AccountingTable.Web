@@ -37,7 +37,7 @@ function UpdateTransactionForm({transaction, category, onUpdate }){
                 ))}
             </select></td>
             <td>
-                <input type="date"
+                <input type="datetile-local"
                        name="transactionDate"
                        onChange={handleChange}
                        value={editedTransaction.transactionDate}/>
