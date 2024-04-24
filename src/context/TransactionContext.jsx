@@ -21,18 +21,19 @@ const TransactionProvider = ({children}) => {
             })
     }
     
-    const addTransaction = (newTransaction) => {}
+    const addTransaction = async (transaction) => {
+        await axios.post(`${BASE_URL}/Transaction`, transaction)
+            .catch((error) => {
+                console.error('Error add transaction', error);
+            });
+    }
 
     const deleteTransactionById = (id) => {
         axios.delete(`${BASE_URL}/Transaction/${id}`)
-            .then(() => {
-                fetchTransaction();
-            })
             .catch((error) => {
                 console.error('Error deleting transaction:', error);
             });
     }
-        
     
     return (
       <TransactionContext.Provider value={{
