@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
-import { CategoryContext } from "../context/CategoryContext";
+import { CategoryContext } from "../../context/CategoryContext";
 
-function EditTable({transaction, category, onUpdate }){
+function UpdateTransactionForm({transaction, category, onUpdate }){
     const { categories, fetchCategories } = useContext(CategoryContext);
     const [editedTransaction, setEditedTransaction] = useState(transaction);
 
@@ -64,4 +64,4 @@ function EditTable({transaction, category, onUpdate }){
     )
 }
 
-export default EditTable;
+export default UpdateTransactionForm;

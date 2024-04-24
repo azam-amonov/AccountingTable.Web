@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from 'react';
 import { numberToCurrency } from "../service/parser";
 import { TransactionResultContext } from "../context/TransactionResultContext";
 import { TransactionContext } from "../context/TransactionContext";
-import EditTable from "./EditTable";
+import UpdateTransactionForm from "../copmonents/UpdateTeransaction/UpdateTransactionForm";
 import './Table.css'
 
 function TransactionResultTable() {
@@ -53,11 +53,11 @@ function TransactionResultTable() {
                 <tbody>
                 {displayTransactions.map(({transaction, category}) => (
                     updateState === transaction.id ?
-                        <EditTable transaction = {transaction} 
-                              transactions = {transactions} 
-                              category = {category}
-                              setTransactions = {setTransactions} 
-                              onUpdate ={onUpdate} 
+                        <UpdateTransactionForm transaction = {transaction}
+                                               transactions = {transactions}
+                                               category = {category}
+                                               setTransactions = {setTransactions}
+                                               onUpdate ={onUpdate} 
                         /> :
                     <tr key={transaction.id}>
                         <td>{transaction.id}</td>
