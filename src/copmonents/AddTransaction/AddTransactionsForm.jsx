@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import uuid from "react-uuid";
 import '../shared/Form.css'
-import axios from "axios";
-import BASE_URL from "../../api/apiConfig";
 import { CategoryContext } from "../../context/CategoryContext";
+import { TransactionContext } from "../../context/TransactionContext";
 
 function AddTransactionsForm() {
     const initialDate = new Date().toISOString().slice(0, 16);
@@ -12,6 +11,7 @@ function AddTransactionsForm() {
     const [amount, setAmount] = useState('');
     const [comment, setComment] = useState('');
     const { categories, fetchCategories } = useContext(CategoryContext);
+    const { addTransaction } = useContext(TransactionContext);
 
     useEffect(() => {
         fetchCategories();
@@ -39,7 +39,7 @@ function AddTransactionsForm() {
                 amount: parseInt(amount)
             };
 
-            const response = await axios.post(`${BASE_URL}/Transaction`, newTransaction);
+            const response = addTransaction(newTransaction);
             console.log("Category created", response.data);
             setCategory('');
             setDate(initialDate);
