@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import {TransactionsContext} from '../../context/TransactionsContext';
+import {TransactionResultContext} from '../../context/TransactionResultContext';
 
 function FilterByType(){
     const [accounting, setAccounting] = useState('');
-    const {filterTransactionsByType} = useContext(TransactionsContext);   
+    const {filterTransactionsByType} = useContext(TransactionResultContext);   
     const handleTypeChange = (e) => {
         setAccounting(e.target.value)
     }
