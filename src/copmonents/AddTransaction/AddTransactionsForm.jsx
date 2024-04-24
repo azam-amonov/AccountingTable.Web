@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 import '../shared/Form.css'
 import axios from "axios";
 import BASE_URL from "../../api/apiConfig";
-import {CategoryContext} from "../../context/CategoryContext";
+import { CategoryContext } from "../../context/CategoryContext";
 
 function AddTransactionsForm() {
     const initialDate = new Date().toISOString().slice(0, 16);
@@ -61,19 +61,22 @@ function AddTransactionsForm() {
                 {categories.map(cat => (
                     <option key={cat.id} value={cat.name}>{cat.name}</option>
                 ))}
-            </select> &nbsp;
+            </select>
+            &nbsp;
             <input
                 type="datetime-local"
                 placeholder="Date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-            /> &nbsp;
+            />
+            &nbsp;
             <input
                 type="number"
                 placeholder="Amount"
                 value={parseInt(amount)}
                 onChange={(e) => setAmount(e.target.value)}
-            /> &nbsp;
+            />
+            &nbsp;
             <input
                 type="text"
                 placeholder="Comment"
