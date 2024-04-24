@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 function EditTable({transaction, category,onUpdate }){
     const [editedTransaction, setEditedTransaction] = useState(transaction);
 
@@ -14,11 +13,10 @@ function EditTable({transaction, category,onUpdate }){
         e.preventDefault();
         onUpdate(editedTransaction)
         console.log(editedTransaction)
-        // fetchTransactionResult()
-        // setUpdateState(null);
     }
+    
     return(
-        <tr>
+        <tr key={transaction.id}>
             <td>{transaction.id}</td>
             <td>{category.accounting === 0 ? 'Income' : 'Expenses'}</td>
             <td>{category.name}</td>
