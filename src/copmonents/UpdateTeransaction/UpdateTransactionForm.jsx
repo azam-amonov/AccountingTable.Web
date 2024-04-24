@@ -27,7 +27,7 @@ function UpdateTransactionForm({transaction, category, onUpdate }){
             <td>{transaction.id}</td>
             <td>{category.accounting === 0 ? 'Income' : 'Expenses'}</td>
             <td><select
-                value={category.id}
+                value={editedTransaction.categoryId}
                 name={'categoryId'}
                 onChange={handleChange}
                 style={{fontSize: '23px', padding: '10px', width: '100%'}}>
