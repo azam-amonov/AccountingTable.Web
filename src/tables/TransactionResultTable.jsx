@@ -4,7 +4,7 @@ import { TransactionResultContext } from "../context/TransactionResultContext";
 import { TransactionContext } from "../context/TransactionContext";
 import './Table.css'
 
-function Table() {
+function TransactionResultTable() {
     let displayTransactions;
     const {
         transactionResults,
@@ -22,6 +22,7 @@ function Table() {
     
     const onUpdate = (transaction) => {
         updateTransaction(transaction); 
+        fetchTransactionResult();
     }
 
     if (filteredTransactionResults.length > 0) {
@@ -78,6 +79,7 @@ function Table() {
     }
     function handleEdit(id) {
         setUpdateState(id)
+        fetchTransactionResult();
     }
 
     function Edit({transaction, category,onUpdate }){
@@ -103,7 +105,7 @@ function Table() {
                     <td>{category.accounting === 0 ? 'Income' : 'Expenses'}</td>
                     <td>{category.name}</td>
                     <td>
-                        <input type="date" 
+                        <input type="date"
                                name="transactionDate" 
                                onChange={handleChange} 
                                value={editedTransaction.transactionDate}/>
@@ -132,4 +134,4 @@ function Table() {
     
 };
 
-export default Table;
+export default TransactionResultTable;
