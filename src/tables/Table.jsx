@@ -6,15 +6,12 @@ import { numberToCurrency } from "../service/parser";
 
 function Table() {
     let displayTransactions;
-    const { transactionResults, filteredTransactionResults } = useContext(TransactionResultContext);
+    const { transactionResults, filteredTransactionResults, fetchTransactionResult } = useContext(TransactionResultContext);
+    const { deleteTransactionById } = useContext(TransactionContext);
     
-    // const {
-    //     transactions,
-    //     deleteTransactionById } = useContext(TransactionContext);
-    
-    const deleteTransactionById =() =>{}
     const onDelete = (id) => {
         deleteTransactionById(id);
+        fetchTransactionResult();
     };
     
     if (filteredTransactionResults.length > 0) {
