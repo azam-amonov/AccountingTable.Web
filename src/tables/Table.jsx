@@ -1,24 +1,26 @@
 import React, {useContext, useState} from 'react';
 import {TransactionResultContext} from "../context/TransactionResultContext";
+import {TransactionContext} from "../context/TransactionContext";
 import './Table.css'
 import { numberToCurrency } from "../service/parser";
 
 function Table() {
-    const { 
-        transactions,
-        setTransactions,
-        filteredTransactions, 
-        deleteTransactionsById } = useContext(TransactionResultContext);
     let displayTransactions;
+    const { transactionResults, filteredTransactionResults } = useContext(TransactionResultContext);
     
+    // const {
+    //     transactions,
+    //     deleteTransactionById } = useContext(TransactionContext);
+    
+    const deleteTransactionById =() =>{}
     const onDelete = (id) => {
-        deleteTransactionsById(id);
+        deleteTransactionById(id);
     };
     
-    if (filteredTransactions.length > 0) {
-        displayTransactions = filteredTransactions;
+    if (filteredTransactionResults.length > 0) {
+        displayTransactions = filteredTransactionResults;
     }else {
-        displayTransactions = transactions;
+        displayTransactions = transactionResults;
     }
     
     return (
