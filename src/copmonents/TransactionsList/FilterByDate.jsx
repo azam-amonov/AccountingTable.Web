@@ -2,12 +2,12 @@ import React, { useState, useContext } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import '../shared/Form.css';
 import DatePicker from 'react-datepicker';
-import {TransactionsContext} from "../../context/TransactionsContext";
+import {TransactionResultContext} from "../../context/TransactionResultContext";
 
 function FilerByDate(){
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const {filterTransactionsByDate} = useContext(TransactionsContext);
+    const {filterTransactionsByDate} = useContext(TransactionResultContext);
     
     const onGetDate = () => {
         filterTransactionsByDate(startDate, endDate)
