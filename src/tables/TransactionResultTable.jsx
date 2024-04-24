@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { numberToCurrency } from "../service/parser";
 import { TransactionResultContext } from "../context/TransactionResultContext";
 import { TransactionContext } from "../context/TransactionContext";
@@ -11,6 +11,10 @@ function TransactionResultTable() {
     const { transactionResults, filteredTransactionResults, fetchTransactionResult } = useContext(TransactionResultContext);
     const {transactions, setTransactions, updateTransaction, deleteTransactionById } = useContext(TransactionContext);
     
+    useEffect(() => {
+        fetchTransactionResult();
+    }, []);
+    
     const handleDelete = (id) => { 
         deleteTransactionById(id); 
         fetchTransactionResult(); 
@@ -18,6 +22,7 @@ function TransactionResultTable() {
     
     function handleEdit(id) {
         setUpdateState(id)
+        fetchTransactionResult();
     }
     
     const onUpdate = (transaction) => {
@@ -72,10 +77,6 @@ function TransactionResultTable() {
             </table>
         </div>
     );
-    
-    function handleUpdate(e){
-        e.preventDefault();
-    }
 }
 
 export default TransactionResultTable;
