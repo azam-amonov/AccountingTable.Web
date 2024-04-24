@@ -57,7 +57,7 @@ function AddTransactionsForm() {
                 onChange={handleCategoryChange}
                 style={{ fontSize: '23px', padding: '10px', width: '20%' }}
             >
-                <option value="">Select Category</option>
+                <option value=''>Select Category</option>
                 {categories.map(cat => (
                     <option key={cat.id} value={cat.name}>{cat.name}</option>
                 ))}
