@@ -13,10 +13,6 @@ function AddTransactionsForm() {
     const { categories, fetchCategories } = useContext(CategoryContext);
     const { addTransaction } = useContext(TransactionContext);
 
-    useEffect(() => {
-        fetchCategories();
-    }, []);
-
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
     };
@@ -49,7 +45,11 @@ function AddTransactionsForm() {
             console.error("Error creating transaction:", error);
         }
     };
-
+    
+    useEffect(() => {
+        fetchCategories();
+    }, [handleSubmit]);
+    
     return (
         <form onSubmit={handleSubmit}>
             <select
