@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from './tables/Table';
+import TransactionResultTable from './tables/TransactionResultTable';
 import AddTransactionsForm from './copmonents/AddTransaction/AddTransactionsForm';
 import AddCategoryForm from './copmonents/AddCategory/AddCategoryForm';
 import DeleteCategoryForm from "./copmonents/DeleteCategory/DeleteCategoryForm";
@@ -23,7 +23,7 @@ function App() {
                 <FilterByType/>
                 <FilterByDate/>
                 <FilterByCategory/>
-                <Table/>
+                <TransactionResultTable/>
             </div>
             </CategoryProvider>
             </TransactionProvider>
