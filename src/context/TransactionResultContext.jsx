@@ -9,10 +9,10 @@ const TransactionResultProvider = ({children}) => {
     const [filteredTransactionResults, setFilteredTransactionResults] = useState([]);
     
     useEffect(() => {
-        fetchTransactions();
+        fetchTransactionResult();
     }, []);
 
-    const fetchTransactions = () => {
+    const fetchTransactionResult = () => {
         axios.get(`${BASE_URL}/TransactionResult`)
             .then(response => {
                 setTransactionResults(response.data);
@@ -21,16 +21,6 @@ const TransactionResultProvider = ({children}) => {
                 console.error('Error fetching transactions:', error);
             });
     };
-    
-    const deleteTransactionsById = (id) => {
-        axios.delete(`${BASE_URL}/Transaction/${id}`)
-            .then(() => {
-                fetchTransactions();
-            })
-            .catch((error) => {
-                console.error('Error deleting transaction:', error);
-            });
-    }
 
     const filterTransactionsByType = (type) => {
         axios.get(`${BASE_URL}/TransactionResult/type/${type}`)
@@ -50,7 +40,7 @@ const TransactionResultProvider = ({children}) => {
                 setFilteredTransactionResults(response.data);
             })
             .catch((error) => {
-                console.error('Error getting transaction', error);
+                console.error('Error getting transaction result', error);
             })
     }
     
@@ -66,11 +56,10 @@ const TransactionResultProvider = ({children}) => {
     
     return (
         <TransactionResultContext.Provider value={{
-            transactions: transactionResults,
-            setTransactions: setTransactionResults,
-            fetchTransactions,
-            deleteTransactionsById,
-            filteredTransactions: filteredTransactionResults, 
+            transactionResults,
+            setTransactionResults,
+            fetchTransactionResult,
+            filteredTransactionResults, 
             filterTransactionsByType,
             filterTransactionsByDate,
             filterTransactionsByCategories}}>
