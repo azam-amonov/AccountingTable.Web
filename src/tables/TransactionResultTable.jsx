@@ -18,13 +18,12 @@ function TransactionResultTable() {
     
     function handleEdit(id) {
         setUpdateState(id)
-        fetchTransactionResult();
     }
     
     const onUpdate = (transaction) => {
         updateTransaction(transaction); 
-        fetchTransactionResult();
-    }
+        setUpdateState(null);
+    };
 
     if (filteredTransactionResults.length > 0) {
         displayTransactions = filteredTransactionResults;
@@ -77,6 +76,6 @@ function TransactionResultTable() {
     function handleUpdate(e){
         e.preventDefault();
     }
-};
+}
 
 export default TransactionResultTable;
