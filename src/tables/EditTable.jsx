@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-function EditTable({transaction, category,onUpdate }){
+import React, {useContext, useEffect, useState} from "react";
+import { CategoryContext } from "../context/CategoryContext";
+
+function EditTable({transaction, category, onUpdate }){
+    const { categories, fetchCategories } = useContext(CategoryContext);
     const [editedTransaction, setEditedTransaction] = useState(transaction);
 
     function handleChange(e){
@@ -15,11 +18,24 @@ function EditTable({transaction, category,onUpdate }){
         console.log(editedTransaction)
     }
     
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+    
     return(
         <tr key={transaction.id}>
             <td>{transaction.id}</td>
             <td>{category.accounting === 0 ? 'Income' : 'Expenses'}</td>
-            <td>{category.name}</td>
+            <td><select
+                value={category.id}
+                name={'categoryId'}
+                onChange={handleChange}
+                style={{fontSize: '23px', padding: '10px', width: '100%'}}>
+                <option> Select Category </option>
+                {categories.map(cat => (
+                    <option key={cat.id} value={cat.id}>{cat.name}</option>
+                ))}
+            </select></td>
             <td>
                 <input type="date"
                        name="transactionDate"
