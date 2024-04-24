@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import uuid from "react-uuid";
 import '../shared/Form.css'
 import axios from "axios";
@@ -6,17 +6,17 @@ import BASE_URL from "../../api/apiConfig";
 import {CategoryContext} from "../../context/CategoryContext";
 
 function AddTransactionsForm() {
-    const currentDate = new Date().toISOString().slice(0, 16)
+    const initialDate = new Date().toISOString().slice(0, 16);
     const [category, setCategory] = useState('');
-    const [date, setDate] = useState(currentDate);
+    const [date, setDate] = useState(initialDate);
     const [amount, setAmount] = useState('');
     const [comment, setComment] = useState('');
     const { categories, fetchCategories } = useContext(CategoryContext);
 
     useEffect(() => {
-        fetchCategories()
+        fetchCategories();
     }, []);
-    
+
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
     };
@@ -27,6 +27,7 @@ function AddTransactionsForm() {
             const selectedCategory = categories.find(cat => cat.name === category);
             if (!selectedCategory) {
                 console.error("Selected Category not found");
+                return;
             }
             
             const newTransaction = {
@@ -37,27 +38,26 @@ function AddTransactionsForm() {
                 comment: comment,
                 amount: parseInt(amount)
             };
-            
-            const response =
-                await axios.post(`${BASE_URL}/Transaction`, newTransaction);
+
+            const response = await axios.post(`${BASE_URL}/Transaction`, newTransaction);
             console.log("Category created", response.data);
             setCategory('');
-            setDate(currentDate);
+            setDate(initialDate);
             setAmount('');
             setComment('');
-        }catch (e) {
-            console.error("Error catching",e);
+        } catch (error) {
+            console.error("Error creating transaction:", error);
         }
     };
-    
+
     return (
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
             <select
                 value={category}
                 onChange={handleCategoryChange}
-                style={{fontSize: '23px', padding: '10px', width: '20%'}}
+                style={{ fontSize: '23px', padding: '10px', width: '20%' }}
             >
-                <option value=''> Select Category</option>
+                <option value="">Select Category</option>
                 {categories.map(cat => (
                     <option key={cat.id} value={cat.name}>{cat.name}</option>
                 ))}
