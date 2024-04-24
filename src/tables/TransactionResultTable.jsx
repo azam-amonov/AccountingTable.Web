@@ -11,13 +11,9 @@ function TransactionResultTable() {
     const { transactionResults, filteredTransactionResults, fetchTransactionResult } = useContext(TransactionResultContext);
     const {transactions, setTransactions, updateTransaction, deleteTransactionById } = useContext(TransactionContext);
     
-    useEffect(() => {
-        fetchTransactionResult();
-    }, []);
-    
-    const handleDelete = (id) => { 
-        deleteTransactionById(id); 
-        fetchTransactionResult(); 
+    const handleDelete = async (id) => { 
+       await deleteTransactionById(id); 
+       fetchTransactionResult(); 
     };
     
     function handleEdit(id) {
@@ -25,11 +21,15 @@ function TransactionResultTable() {
         fetchTransactionResult();
     }
     
-    const onUpdate = (transaction) => {
-        updateTransaction(transaction); 
+    const onUpdate =  async (transaction) => {
+        await updateTransaction(transaction); 
         setUpdateState(null);
     };
-
+    
+    useEffect(() => {
+        fetchTransactionResult();
+    }, [ handleEdit, onUpdate ]);
+    
     if (filteredTransactionResults.length > 0) {
         displayTransactions = filteredTransactionResults;
     } else {
