@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext } from 'react';
 import {TransactionResultContext} from "../context/TransactionResultContext";
 import {TransactionContext} from "../context/TransactionContext";
 import './Table.css'
