@@ -5,9 +5,12 @@ import { CategoryContext } from "../../context/CategoryContext";
 import { TransactionContext } from "../../context/TransactionContext";
 
 function AddTransactionsForm() {
-    const initialDate = new Date().toISOString().slice(0, 16);
+    const initialDate = new Date();
+    initialDate.setHours(initialDate.getHours() +5);
+    const localDate = initialDate.toISOString().slice(0, 16);
+    
     const [category, setCategory] = useState('');
-    const [date, setDate] = useState(initialDate);
+    const [date, setDate] = useState(localDate);
     const [amount, setAmount] = useState('');
     const [comment, setComment] = useState('');
     const { categories, fetchCategories } = useContext(CategoryContext);
